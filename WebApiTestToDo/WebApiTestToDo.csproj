@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="HotelDetails.html" />
     <Content Include="Search.html" />
     <Content Include="indexorig.html" />
     <Content Include="index.html" />
