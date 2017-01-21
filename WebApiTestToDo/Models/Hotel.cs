@@ -15,4 +15,5 @@ namespace WebApiTestToDo.Models
         public String LowRate { get; set; }
         public String ImageUrl { get; set; }
     }
+
 }
