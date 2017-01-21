@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App</title>
+</head>
+<body>
+
+    <div>
+        <h2>All Products</h2>
+        <ul id="products" />
+    </div>
+    <div>
+        <h2>Search by ID</h2>
+        <input type="text" id="prodId" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <input type="button" value="Search2" onclick="find2();" />
+        <p id="product" /><div id="images">ss</div>
+    </div>
+    <table id="gridview2" class="display" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table id="treegrid"></table> <div id="ptreegrid"></div>
+ 
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+     
+
+    <script>
+        //    jQuery("#method").jqGrid({ url: 'server.php?q=1', datatype: "xml", colNames: ['Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'], colModel: [{ name: 'id', index: 'id', width: 55 }, { name: 'invdate', index: 'invdate', width: 90 }, { name: 'name', index: 'name', width: 100 }, { name: 'amount', index: 'amount', width: 80, align: "right" }, { name: 'tax', index: 'tax', width: 80, align: "right" }, { name: 'total', index: 'total', width: 80, align: "right" }, { name: 'note', index: 'note', width: 150, sortable: false }], rowNum: 10, rowList: [10, 20, 30], pager: '#pmethod', sortname: 'id', viewrecords: true, sortorder: "desc", caption: "New Methods", multiselect: true, onPaging: function (but) { alert("Button: " + but + " is clicked"); } }); jQuery("#method").jqGrid('navGrid', '#pmethod', { edit: false, add: false, del: false }); jQuery("#sm1").click(function () { alert($("#method").jqGrid('getGridParam', "records")); }); jQuery("#sm2").click(function () { $("#method").jqGrid('setGridParam', { onSelectRow: function (id) { $("#resp").html("I'm row number: " + id + " and setted dynamically").css("color", "red"); } }); alert("Try to select row"); }); jQuery("#sm3").click(function () { $("#method").jqGrid('resetSelection'); });
+
+
+
+        jQuery("#treegrid").jqGrid({
+            url: 'server.php?q=tree',
+            treedatatype: "xml",
+            mtype: "POST",
+            colNames: ["id", "Account", "Acc Num", "Debit", "Credit", "Balance"],
+            colModel: [
+                {
+                    name: 'id',
+                    index: 'id',
+                    width: 1,
+                    hidden: true,
+                    key: true
+                }, { name: 'name', index: 'name', width: 180 },
+                { name: 'num', index: 'acc_num', width: 80, align: "center" },
+                { name: 'debit', index: 'debit', width: 80, align: "right" },
+                { name: 'credit', index: 'credit', width: 80, align: "right" },
+                { name: 'balance', index: 'balance', width: 80, align: "right" }
+            ],
+            height: 'auto',
+            pager: "#ptreegrid",
+            treeGrid: true,
+            ExpandColumn: 'name',
+            caption: "Treegrid example"
+        });
+
+    </script>
+
+
+
+
+    <script>
+        var uri = 'api/hotels/1';
+        /*
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "ajax": "App_Data/dataSample/dataobjects.txt",
+                "columns": [
+                    { "data": "name" }
+                ]
+            });
+        });*/
+
+         
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                        //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
+                        //for (var i = 0; i < data.length; i++)
+                        {
+                            $("#gridview2").append('<tr><td><img src="' + item.thumbnailurl + '"/></td><td>' + item.name + '</td><td>' + item.city + '</td></tr>');
+                        };                             
+
+                    });
+                });
+        }); 
+
+        function formatItem(item) {
+            return item.name + ': ' + item.hotelid + '<img src="' + item.thumbnailurl + '"/>';
+        }
+
+        function find() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    $('#product').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#product').text('Error: ' + err);
+                });
+        }
+
+        function find2() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                        $('#images').append('<img src="' + item.thumbnailurl + '" alt="something" />');
+
+
+                    });
+                });
+            }
+    </script>
+</body>
+</html>

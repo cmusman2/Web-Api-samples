@@ -1,0 +1,17 @@
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\WebApiTestToDo.dll.config
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\WebApiTestToDo.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\WebApiTestToDo.pdb
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\EntityFramework.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\EntityFramework.SqlServer.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\Newtonsoft.Json.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Net.Http.Formatting.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Web.Http.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Web.Http.WebHost.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\EntityFramework.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\EntityFramework.SqlServer.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\Newtonsoft.Json.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Net.Http.Formatting.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Web.Http.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Web.Http.WebHost.xml
+C:\net\WebApiTestToDo\WebApiTestToDo\obj\Debug\WebApiTestToDo.dll
+C:\net\WebApiTestToDo\WebApiTestToDo\obj\Debug\WebApiTestToDo.pdb

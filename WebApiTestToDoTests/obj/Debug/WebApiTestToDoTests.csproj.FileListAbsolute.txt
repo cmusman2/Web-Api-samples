@@ -1,0 +1,5 @@
+C:\net\WebApiTestToDo\WebApiTestToDoTests\bin\Debug\WebApiTestToDoTests.dll
+C:\net\WebApiTestToDo\WebApiTestToDoTests\bin\Debug\WebApiTestToDoTests.pdb
+C:\net\WebApiTestToDo\WebApiTestToDoTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\net\WebApiTestToDo\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.dll
+C:\net\WebApiTestToDo\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.pdb

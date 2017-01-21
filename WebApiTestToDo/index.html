@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search hotels</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-custom.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+
+
+    <style>
+        body{font-family:Arial; font-size:10pt;}
+        ui-state-error-text ui-state-error 
+        {
+            color:#1e90ff;
+        }
+
+        #mainsearch td {background-color:transparent}
+       td{vertical-align:top; font-size:10pt;background-color:#fff}
+        
+        .htlname{color:#1e90ff;font-size:12pt;font-weight:bold}
+        .priceDisplay{color:#ff0000;font-size:14pt;vertical-align:middle;font-weight:bold;width:10%}
+
+
+        .bookbtntd{vertical-align:middle;width:10%}
+        .bookbtn{color:#fff;background:#1e90ff;font-size:12pt;padding:10px;text-decoration:none}
+        .shortDesc{font-size:9pt;font-weight:normal}
+       .dottedtr{border-top:dotted;border-top-color:#1e90ff;border-top-width:1px;padding:5px;background-color:#fff}
+       .hf{background-color:#1a1717;color:#fff;padding:10px;font-weight:bold;font-size:12pt}
+       .searchbtn{}
+       .mainsearchdiv{opacity:.8;background-color:#fff;width:20%; height:auto; padding:10px; text-align:center; min-width:200px}
+
+    </style>
+    
+
+    
+</head>
+<body>
+
+<table id="mainsearch" style="width:100%;height:250px; background-size: cover; text-align:center;background-image:url(http://www.lowestroomrates.com/images/27528_351_z.jpg)">
+    <tr>
+        <td align="center" valign="middle"  style="top:50px;position:relative">
+         <div class="mainsearchdiv">
+            <div>
+                <h1>Search hotels</h1>
+            </div>
+            <div>
+                <input type="text" id="prodId" name="prodId" value="Glasgow" size="25" />
+                <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
+            </div>
+          </div>
+        </td>
+    </tr>
+    
+</table>
+
+    <table id="gridview2" class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#eee">
+
+      
+    </table>
+
+    <table id="colr" border="0" class="ui-jqgrid"></table> <div id="pcolr" style="visibility:visible"></div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        var uri = 'api/hotels/';
+
+
+
+        function formatItem(item) {
+            return item.name + ': ' + item.hotelid + '<img src="' + item.thumbnailurl + '"/>';
+        }
+
+        function findHotel()
+        {
+            
+          
+            $.getJSON(uri + document.getElementById('prodId').value)
+                .done(function (data) {
+                    $("#gridview2").empty();
+                    $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
+
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                        //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
+                        //for (var i = 0; i < data.length; i++)
+                        {
+                            if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
+                                $("#gridview2").append('<tr><td width="5%"><img src="' + item.thumbnailurl + '"/></td>       <td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></td></tr>');
+                            else
+                                $("#gridview2").append('<tr><td width="5%"></td><td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></td></tr>');
+                            $("#gridview2").append('<tr><td colspan="4" class="dottedtr"></td></tr>');
+
+
+                        };
+
+                    });
+                });
+        }
+
+        function find() {
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                        //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
+                        //for (var i = 0; i < data.length; i++)
+                        {
+                            if ((item.thumbnailurl != '') && (item.thumbnailurl != null))
+                                $("#gridview2").append('<tr><td><img src="' + item.thumbnailurl + '"/></td><td>' + item.name + '</td><td>' + item.city + '</td><td class="priceDisplay">' + item.lowrate + '</td></tr>');
+                            else
+                                $("#gridview2").append('<tr><td></td><td>' + item.name + '</td><td>' + item.city + '</td><td>' + item.lowrate + '</td></tr>');
+                        };
+
+                    });
+                });
+        }
+
+        function find0() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    $('#product').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#product').text('Error: ' + err);
+                });
+        }
+
+        function find2() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                        $('#images').append('<img src="' + item.thumbnailurl + '" alt="something" />');
+
+
+                    });
+                });
+        }
+    </script>
+
+
+
+</body>
+</html>
