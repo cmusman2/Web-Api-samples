@@ -6,6 +6,5 @@ C:\net\WebApiTestToDo\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.pdb
 C:\net\WebApiTestToDoRep\WebApiTestToDoTests\bin\Debug\WebApiTestToDoTests.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDoTests\bin\Debug\WebApiTestToDoTests.pdb
 C:\net\WebApiTestToDoRep\WebApiTestToDoTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\net\WebApiTestToDoRep\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDoRep\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDoTests\obj\Debug\WebApiTestToDoTests.pdb
