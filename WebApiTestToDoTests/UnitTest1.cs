@@ -10,11 +10,13 @@ namespace WebApiTestToDoTests
         [TestMethod]
         public void TestMethod1()
         {
-            
+
             //a-arrange
             //a-act
             //a-assert
-
+            int a = 20;
+            a = 5 * a;
+            Assert.AreEqual(100, a);
         }
 
         [TestMethod]

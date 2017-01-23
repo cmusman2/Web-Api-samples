@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\LowestRoomRates - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WebAPI-ProductsApp9634.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
