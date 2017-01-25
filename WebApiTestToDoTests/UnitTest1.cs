@@ -10,7 +10,6 @@ namespace WebApiTestToDoTests
         [TestMethod]
         public void TestMethod1()
         {
-
             //a-arrange
             //a-act
             //a-assert
