@@ -44,10 +44,9 @@ namespace WebApiTestToDo.Models
             list.Sort();
             if (!String.IsNullOrEmpty(loc) && !String.IsNullOrWhiteSpace(loc))
                 result = list.Where((p) => p.City.ToLower().Contains(loc.ToLower())).ToList();
-             
-                result = list.Take(10).ToList();//first 10 enough
+                            
 
-            return result;
+            return result.Take(10).ToList(); //first 10 enough
         }
 
 
