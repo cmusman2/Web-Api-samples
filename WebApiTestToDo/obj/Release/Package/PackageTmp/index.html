@@ -1,10 +1,27 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Search hotels</title>
+    <title>Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates</title>
+    <meta name="description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
+    <meta name="keywords" content="BnB,Bed &amp; Breakfast, All Inclusive Deals, Super 8, Vacational Rentals, City Breaks, Wingate Inn,Hotel Bookinngs,Hotel Rates" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="canonical" href="http://www.lowestroomrates.com/index.html" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates" />
+    <meta property="og:description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
+    <meta property="og:url" content="http://www.lowestroomrates.com/" />
+    <meta property="og:site_name" content="lowestroomrates.com" />
+    <meta http-equiv="content-language" content="en" />
+    <link rel="author" href="https://plus.google.com/b/116350002083718006672/+Lowestroomrates" />
+
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-custom.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+
+
 
 
     <style>
@@ -55,6 +72,7 @@
             <div>
                 <div>
                 <input type="text" id="locid" name="locid" value="Glasgow" size="25" oninput="getLocation()"/>
+                    
                 <div id="location">
                     <ul id="loclist" style="padding:0px;opacity:1;"></ul>
                 </div>
@@ -62,6 +80,9 @@
 
 
                 <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
+                <div id="prog" style="visibility:hidden" >
+                <img height="25" src="http://www.lowestroomrates.com/images/animated_progress.gif"/>
+                    </div>
             </div>
           </div>
         </td>
@@ -109,44 +130,11 @@
 
         function findHotel()
         {
-            /*
-            $.getJSON(uri + document.getElementById('locid').value)
-                .done(function (data) {
-                    $("#gridview2").empty();
-                    $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
-                    $("#gridview2").append('<tr><td colspan="4"><ul><li>');
-                    // On success, 'data' contains a list of products.
-                    $.each(data, function (key, item) {
-                        // Add a list item for the product.
-                        //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                        //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
-                        //for (var i = 0; i < data.length; i++)
-                        {
-                            if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
-                                $("#gridview2").append('<ul class="loclist"><li>' +
-                                    '<img src="' + item.thumbnailurl + '"/></li>'+
-                                    '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
-                                    '<li class="priceDisplay">' + item.lowrate + '</li>'+
-                                    '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></li>');
-                            else
-                                $("#gridview2").append('<ul><li></li>' +
-                                    '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
-                                    '<li class="priceDisplay">' + item.lowrate + '</li>'+
-                                    '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></li>');
-                            $("#gridview2").append('</ul>');
-
-
-                        };
-
-                    });
-                    $("#gridview2").append('</li></ul></td></tr>');
-                });*/
-
-
-
             
+            $("#prog").show();
             $.getJSON(uri + document.getElementById('locid').value)
                 .done(function (data) {
+                    $("#prog").hide();
                     $("#gridview2").empty();
                     $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
                     // On success, 'data' contains a list of products.
@@ -171,7 +159,7 @@
         }
 
 
-
+           
         function getLocation() {
 
             if (document.getElementById('locid').value.length < 3) { $("#loclist").hide();return };
