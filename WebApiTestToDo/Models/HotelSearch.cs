@@ -15,7 +15,7 @@ namespace WebApiTestToDo.Controllers
     {
         public async static Task<List<Hotel>> GetData(int v)
         {
-           // return await Hotels.getHotels();
+           //return await Hotels.getHotels();
             return null;
 
         }

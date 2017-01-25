@@ -12,8 +12,7 @@ namespace WebApiTestToDo.Models
         public String City { get; set; }
         public String Address1 { get; set; }
         public String postalCode { get; set; }
-        public String LowRate { get; set; }
+        public String LowRate { get; set; } 
         public String ImageUrl { get; set; }
     }
-
 }

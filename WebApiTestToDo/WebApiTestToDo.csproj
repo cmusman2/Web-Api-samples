@@ -83,9 +83,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\images\27528_351_z.jpg" />
     <Content Include="Global.asax" />
-    <Content Include="HotelDetails.html" />
+    <Content Include="tests.html" />
     <Content Include="Search.html" />
     <Content Include="indexorig.html" />
     <Content Include="index.html" />
@@ -96,11 +95,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HotelDetailsController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Models\DataSource.cs" />
     <Compile Include="Models\HotelSearch.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +116,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -2,32 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Search hotels</title>
-    <title>Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates</title>
-    <meta name="description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
-    <meta name="keywords" content="BnB,Bed &amp; Breakfast, All Inclusive Deals, Super 8, Vacational Rentals, City Breaks, Wingate Inn,Hotel Bookinngs,Hotel Rates" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <link rel="canonical" href="http://www.lowestroomrates.com/index.html" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates" />
-    <meta property="og:description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
-    <meta property="og:url" content="http://www.lowestroomrates.com/" />
-    <meta property="og:site_name" content="lowestroomrates.com" />
-    <meta http-equiv="content-language" content="en" />    
-    
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-custom.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
 
 
-    <style> 
+    <style>
         body{font-family:Arial; font-size:10pt;}
         ui-state-error-text ui-state-error 
         {
             color:#1e90ff;
-        }
+        }      
+        
+        #location li{list-style:none;opacity:1;background-color:#fff; width:auto;padding:2px;padding-right:10px;cursor:pointer}      
+        #location li:hover{background-color:#1e90ff;color:#fff}
 
         #mainsearch td {background-color:transparent}
        td{vertical-align:top; font-size:10pt;background-color:#fff}
@@ -44,313 +32,14 @@
        .searchbtn{}
        .mainsearchdiv{opacity:.8;background-color:#fff;width:20%; height:auto; padding:10px; text-align:center; min-width:200px}
 
-    </style> 
+    </style>
     
-    <style type="text/css">
-        #dtlist select {
-            padding: .1em;
-            font-size: 1em;
-            border: .1em solid #ccc;
-            height: 2.8em;
-            font-weight: normal;
-            width: 150px;
-        }
 
-        .styled select {
-            padding: .2em;
-            font-size: 1em;
-            border: .1em solid #ccc;
-            height: 2.8em;
-            background-color: #fff;
-            font-weight: normal;
-        }
-
-
-        ul {
-            padding-left: 0;
-        }
-
-        .two-col-special {
-            width: 185px;
-            overflow: auto;
-            margin: 0;
-            padding: 0;
-        }
-
-            .two-col-special li {
-                list-style-image: url('images/dotsk.png');
-                padding: 5px;
-            }
-
-                .two-col-special li:before {
-                    content: ' ';
-                    margin-right: 5px;
-                    color: #f00;
-                    display: inline-block;
-                }
-
-        .mrateopt {
-        }
-
-            .mrateopt li {
-                float: left;
-                padding: 3px;
-            }
-
-        .brateopt {
-            position: relative;
-            top: 280px;
-            font-weight: bold;
-            font-size: 14pt;
-            background: #ccc;
-            color: #1e90ff;
-            width: 220px;
-            left: 245px;
-            text-align: center;
-        }
-
-        .mdd {
-            text-align: center;
-        }
-
-        a.mdd {
-            border: #fff 1px solid;
-            width: 200px;
-            font-size: 12pt;
-            background: #1e90ff;
-            color: #FFF;
-            font-weight: bold;
-            padding: 10px;
-            text-align: center;
-        }
-
-
-        #beach {
-            padding: 0px;
-            width: 100%;
-        }
-
-            #beach div .td {
-                padding-right: 5px;
-            }
-
-        #mainitems {
-        }
-
-        .city_input {
-            width: 330px;
-        }
-
-        .imgmain {
-            width: 376px;
-            height: 200px;
-        }
-
-        .headerline {
-            margin-top: -25px;
-            margin-left: 80%;
-        }
-
-        .searchPane {
-            width: 30%;
-            height: 450px;
-            background: url(images/27528_351_z.jpg);
-            background-size: cover;
-        }
-
-        .searchPaneContent {
-            font-weight: bold;
-            font-size: 1.1em;
-            z-index: 1;
-            left: 3%;
-            opacity: .97;
-            height: auto;
-            background: #fff;
-            top: 22px;
-            padding-top: 2px;
-            padding-bottom: 0px;
-            padding-left: 18px;
-            padding-right: 5px;
-            position: relative;
-        }
-
-        #dtlist {
-            display: none;
-        }
-
-        #dtdlg {
-            display: block;
-        }
-
-        .imgsi {
-            width: 300px;
-            height: 210px;
-        }
-
-        .headertitle {
-            padding: 5px;
-            width: 295px;
-            padding-right: 0px;
-            font-size: 12pt;
-            font-weight: bold;
-            color: #fff;
-            background: #FF4000;
-            text-align: center;
-        }
-
-        @media only screen and (max-width: 1270px) {
-            body[yahoo] .deviceWidth {
-                width: 100% !important;
-                padding: 0;
-                font-size: 10pt;
-            }
-
-            body[yahoo] .imgmain {
-                width: 300px !important;
-            }
-        }
-
-        @media only screen and (max-width: 1010px) {
-            body[yahoo] .imgmain {
-                width: 270px !important;
-            }
-        }
-
-        @media only screen and (max-width: 910px) {
-            body[yahoo] .center {
-                margin: 0 auto;
-                text-align: center !important;
-                float: center;
-            }
-
-            body[yahoo] .imgmain {
-                width: 220px !important;
-            }
-
-            body[yahoo] .mmenu {
-                display: none;
-            }
-
-
-
-            #beach {
-                padding: 0px;
-                width: 70%;
-            }
-
-            #htitle {
-                display: none;
-            }
-        }
-
-        @media only screen and (max-width: 800px) {
-            body[yahoo] .imgmain {
-                width: 500px !important;
-            }
-
-
-            #mainitems {
-                display: none;
-            }
-
-            #beach {
-                padding: 0px;
-                width: 90%;
-            }
-        }
-
-        @media only screen and (max-width: 700px) {
-
-
-            #beach {
-                display: none;
-            }
-
-            #dtdlg {
-                display: none;
-            }
-
-            #dtlist {
-                display: block;
-            }
-
-            body[yahoo] .imgsi {
-                width: 100%;
-                height: 250px;
-            }
-
-            body[yahoo] .headertitle {
-                width: 99%;
-            }
-
-            body[yahoo] .testbutton {
-                width: 300px;
-            }
-
-            #testbutton {
-                text-align: center;
-            }
-
-            body[yahoo] .mrateopt li {
-                float: none;
-            }
-        }
-
-        @media only screen and (max-width: 640px) {
-            body[yahoo] .searchPaneContent {
-                left: 1.5%;
-                important;
-            }
-        }
-
-
-        @media only screen and (max-width: 550px) {
-            body[yahoo] .searchPaneContent {
-                left: 4%;
-                width: 425px;
-                important;
-            }
-
-            body[yahoo] .imgmain {
-                width: 430px !important;
-                float: center;
-            }
-        }
-
-
-        @media only screen and (max-width: 489px) {
-            body[yahoo] .imgmain {
-                width: 350px !important;
-                float: center;
-            }
-
-            body[yahoo] .searchPaneContent {
-                left: 0%;
-                top: 10px;
-                width: auto;
-                important;
-            }
-
-            body[yahoo] .searchPane {
-                background: #fff;
-                width: auto;
-                height: 450px;
-                important;
-            }
-
-            #slog {
-                display: none;
-            }
-
-            #slc {
-                display: none;
-            }
-        }
-    </style>       
+    
 </head>
-<body yahoo="fix">
+<body>
 
-<table id="mainsearch" style="width: 100%; height: 250px; background-size: cover; text-align: center; background-image: url('http://www.lowestroomrates.com/images/27528_351_z.jpg')">
+<table id="mainsearch" style="width:100%;height:250px; background-size: cover; text-align:center;background-image:url(http://www.lowestroomrates.com/images/27528_351_z.jpg)">
     <tr>
         <td align="center" valign="middle"  style="top:50px;position:relative">
          <div class="mainsearchdiv">
@@ -358,13 +47,20 @@
                 <h1>Search hotels</h1>
             </div>
             <div>
-                <input type="text" id="prodId" name="prodId" value="Glasgow" size="25" />
+                <div>
+                <input type="text" id="locid" name="locid" value="Glasgow" size="25" oninput="getLocation()"/>
+                <div id="location" border="0" class="ui-jqgrid" style="background-color:#fff;opacity:1;height:auto;width:auto;position:fixed;text-align:left;">
+                    <ul id="loclist" style="padding:0px;opacity:1;"></ul>
+                </div>
+                </div>
+
+
                 <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
             </div>
           </div>
         </td>
     </tr>
-    <tr><td></td></tr>
+    
 </table>
 
     <table id="gridview2" class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#eee">
@@ -379,6 +75,24 @@
 
 
     <script>
+
+        function getEventTarget(e) {
+            e = e || window.event;
+            return e.target || e.srcElement;
+        }
+
+        var ul = document.getElementById('loclist');
+        ul.onclick = function (event) {
+            var target = getEventTarget(event);
+            var locc = document.getElementById('locid');
+            if (locc != null) {
+                locc.value = target.innerHTML;
+                $("#loclist").hide();
+            }
+        };
+
+
+
         var uri = 'api/hotels/';
 
 
@@ -391,11 +105,10 @@
         {
             
           
-            $.getJSON(uri + document.getElementById('prodId').value)
+            $.getJSON(uri + document.getElementById('locid').value)
                 .done(function (data) {
                     $("#gridview2").empty();
                     $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
-
                     // On success, 'data' contains a list of products.
                     $.each(data, function (key, item) {
                         // Add a list item for the product.
@@ -415,6 +128,26 @@
                     });
                 });
         }
+
+
+
+        function getLocation() {
+
+
+            $.getJSON('api/locations/' + document.getElementById('locid').value)
+                .done(function (data) {
+                    $("#loclist").empty();
+                    
+                    // On success, 'data' contains a list of location.
+                    $.each(data, function (key, item) {
+                        
+                        $("#loclist").append('<li>' + item.City + ', ' + item.CountryCode + '</li>');
+
+                    });
+                    $("#loclist").show();
+                });
+        }
+
 
         function find() {
             $.getJSON(uri)

@@ -1,6 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using WebApiTestToDo.Controllers;
+using WebApiTestToDo.Models;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WebApiTestToDoTests
 {
@@ -8,23 +12,21 @@ namespace WebApiTestToDoTests
     public class UnitTest1
     {
         [TestMethod]
+        [Owner("John")]
         public void TestMethod1()
         {
-            //a-arrange
-            //a-act
-            //a-assert
-            int a = 20;
-            a = 5 * a;
-            Assert.AreEqual(100, a);
-        }
 
-        [TestMethod]
-        public void TestMethod2() 
-        {
+            LocationsController c = new  LocationsController();
 
+            IEnumerable<Location> list = c.GetAllLocations();
 
+            string city = "";
 
+           IEnumerator<Location>  enumer = list.GetEnumerator();
 
+            if (enumer != null) enumer.MoveNext();
+            city = enumer.Current.City;
+            Assert.AreEqual(city, "Aberdeen");
             //a-arrange
             //a-act
             //a-assert
@@ -32,23 +34,14 @@ namespace WebApiTestToDoTests
         }
 
         [TestMethod]
-        public void TestMethod3()
+        [Priority(9)]
+        [Owner("John")]
+        public async Task TestMethod2() 
         {
 
-            //a-arrange
-            //a-act
-            //a-assert
-
-        }
-
-
-        [TestMethod]
-        public void TestMethod4()
-        {
-
-            //a-arrange
-            //a-act
-            //a-assert
+            HotelsController hc = new HotelsController();
+            System.Web.Http.IHttpActionResult hl = await hc.GetHotel("London");                      
+            Assert.AreNotEqual(hl, null);
 
         }
     }
