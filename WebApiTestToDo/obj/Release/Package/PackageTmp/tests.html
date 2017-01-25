@@ -19,9 +19,9 @@
 
         .lileft{float:left;}
         .liright{float:right;}
-        #location{background-color:#fff; height:auto;width:auto;position:fixed;text-align:left;}
+        .linoalign{float:none;}
 
-        #loclist li{float:none;border-width:1px;border-color:#ff0000;border-top-color:#fff}
+        .loclist li{float:left;list-style:none}
 
         #mainsearch td {background-color:transparent}
        td{vertical-align:top; font-size:10pt;background-color:#fff}
@@ -55,8 +55,8 @@
             <div>
                 <div>
                 <input type="text" id="locid" name="locid" value="Glasgow" size="25" oninput="getLocation()"/>
-                <div id="location">
-                    <ul id="loclist" style="padding:0px;opacity:1;"></ul>
+                <div id="location" border="0" class="ui-jqgrid" style="background-color:#fff;opacity:1;height:auto;width:auto;position:fixed;text-align:left;">
+                    <ul id="loclistss" style="padding:0px;opacity:1;"></ul>
                 </div>
                 </div>
 
@@ -70,8 +70,25 @@
 </table>
 
     <table id="gridview2" class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#eee">
+        <tr><td colspan="4" class="hf">Hotel search results</td></tr>
+        <tr>
+            <td colspan="4">
+                <ul id="loclist">
+                    <li style="list-style:none">
+                    <ul class="loclist">
+                    <li><img src="http://images.travelnow.com/hotels/11000000/10420000/10411900/10411849/10411849_38_l.jpg" /></li>
+                    <li style="width:60%"><table class="gv"><tr>   <td class="htlname">Village Hotel Glasgow</td></tr><tr>   <td>7 Festival Gate</td></tr><tr>   <td>Glasgow</td></tr><tr>   <td>Near Glasgow Science Centre</td></tr><tr>   <td class="shortDesc">With a stay at Village Hotel Glasgow in Glasgow, you'll be in the suburbs and minutes from Glasgow Science Centre, and close to Scottish Exhibition and Conference...</td></tr></table>       </li>
+                    <li class="priceDisplay " style="width:15%">$ 118.90</li>
+                    <li class="bookbtntd " style="width:15%"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa123456" class="bookbtn">See&nbsp;details</a></li>
+                        </ul>
 
-      
+
+                    </li>
+                    </ul>
+            </td>
+        </tr>
+
+
     </table>
 
     <table id="colr" border="0" class="ui-jqgrid"></table> <div id="pcolr" style="visibility:visible"></div>
@@ -109,12 +126,12 @@
 
         function findHotel()
         {
-            /*
+            
             $.getJSON(uri + document.getElementById('locid').value)
                 .done(function (data) {
                     $("#gridview2").empty();
                     $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
-                    $("#gridview2").append('<tr><td colspan="4"><ul><li>');
+                    $("#gridview2").append('<tr><td colspan="4"><ul id="loclist">');
                     // On success, 'data' contains a list of products.
                     $.each(data, function (key, item) {
                         // Add a list item for the product.
@@ -123,34 +140,33 @@
                         //for (var i = 0; i < data.length; i++)
                         {
                             if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
-                                $("#gridview2").append('<ul class="loclist"><li>' +
+                                $("#gridview2").append('<li>' +
                                     '<img src="' + item.thumbnailurl + '"/></li>'+
                                     '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
                                     '<li class="priceDisplay">' + item.lowrate + '</li>'+
                                     '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></li>');
                             else
-                                $("#gridview2").append('<ul><li></li>' +
+                                $("#gridview2").append('<li></li>' +
                                     '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
                                     '<li class="priceDisplay">' + item.lowrate + '</li>'+
                                     '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></li>');
-                            $("#gridview2").append('</ul>');
+                            
 
 
                         };
 
                     });
-                    $("#gridview2").append('</li></ul></td></tr>');
-                });*/
+                    $("#gridview2").append('</ul></td></tr>');
+                });
 
 
 
-            
+          /*
             $.getJSON(uri + document.getElementById('locid').value)
                 .done(function (data) {
                     $("#gridview2").empty();
                     $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
                     // On success, 'data' contains a list of products.
-                    if ((data == null) || (data == "")) return;
                     $.each(data, function (key, item) {
                         // Add a list item for the product.
                         //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
@@ -167,14 +183,14 @@
                         };
 
                     });
-                }); 
+                });*/
         }
 
 
-           
+
         function getLocation() {
 
-            if (document.getElementById('locid').value.length < 3) { $("#loclist").hide();return };
+
             $.getJSON('api/locations/' + document.getElementById('locid').value)
                 .done(function (data) {
                     $("#loclist").empty();
