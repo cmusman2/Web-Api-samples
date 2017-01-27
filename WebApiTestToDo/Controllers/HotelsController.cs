@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WebApiTestToDo.Models;
+using WebApiTestToDo.Security;
 
 namespace WebApiTestToDo.Controllers
 {
@@ -24,7 +25,7 @@ namespace WebApiTestToDo.Controllers
              return hotels;
         }
 
-        public async Task<IHttpActionResult> GetHotel(string Id)
+        public async Task<IHttpActionResult> GetHotel([FromUri(Name = "id")]string Id)
         {
             if (hotels == null)
             {
@@ -45,6 +46,27 @@ namespace WebApiTestToDo.Controllers
             }*/
             return Ok(hotels);
             
+            
+        }
+
+        // [AuthenticateHotelUsers]
+        [IdentityBasicAuthentication]
+        [Authorize]
+        [Route("api/hotels/{hotelid}/{city}")]
+        public async Task<IHttpActionResult> GetHotelDetails([FromUri(Name = "hotelid")]string Id, [FromUri(Name = "city")]string city)
+        {
+            
+            if (hotels == null)
+            {
+                hotels = await HotelSearch.GetData(city, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
+            }
+
+            //var hotel = hotels.FirstOrDefault((h) => h.hotelid == Id);
+            var hotel = hotels.FirstOrDefault();
+
+
+            return Ok(hotel);
+
         }
     }
 }

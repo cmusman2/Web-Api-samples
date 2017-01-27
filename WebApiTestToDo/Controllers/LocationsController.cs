@@ -14,7 +14,7 @@ namespace WebApiTestToDo.Controllers
         [HttpGet]
         public IEnumerable<Location> GetLocation([FromUri(Name = "id")]string loc)
         {
-            return DataSource.GetLocation(loc);            
+           return DataSource.GetLocation(loc);            
         }   
     }
 }
