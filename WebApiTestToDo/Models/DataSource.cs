@@ -29,14 +29,19 @@ namespace WebApiTestToDo.Models
                 new Location{City="Belfast", CountryCode="GB"},
                 new Location{City="Cardiff", CountryCode="GB"}, 
                 new Location{City="Liverpool", CountryCode="GB"},
+
                 new Location{City="Leeds", CountryCode="GB"},
                 new Location{City="New Castle", CountryCode="GB"},
                 new Location{City="Stoke on Trent", CountryCode="GB"},
                 new Location{City="Sheffield", CountryCode="GB"},
                 new Location{City="Blackpool", CountryCode="GB"},
                 new Location{City="Sale, Greater Manchester", CountryCode="GB"},
+                new Location{City="Macclesfield", CountryCode="GB"},
+                new Location{City="Crew", CountryCode="GB"},
 
                 new Location{City="Chester", CountryCode="GB"}
+
+
 
             };
             var result = list;
