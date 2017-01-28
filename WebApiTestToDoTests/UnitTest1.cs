@@ -41,7 +41,7 @@ namespace WebApiTestToDoTests
 
             HotelsController hc = new HotelsController();
             System.Web.Http.IHttpActionResult hl = await hc.GetHotel("London");                      
-            Assert.AreNotEqual(hl, null);
+            Assert.AreNotEqual(hl, 123);
 
         }
     }

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="11830227-4a56-4c83-aac3-cd91b6620a27" name="SYSTEM@MURU 2017-01-28 22:21:33" runUser="NT AUTHORITY\SYSTEM" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="09821d23-3bb1-4635-8577-ded31c0735a4">
+    <Deployment userDeploymentRoot="C:\net\WebApiTestToDoRep" useDefaultDeploymentRoot="false" runDeploymentRoot="SYSTEM_MURU 2017-01-28 22_21_33" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2017-01-28T22:21:33.5739520+00:00" queuing="2017-01-28T22:21:33.7941116+00:00" start="2017-01-28T22:21:33.8701475+00:00" finish="2017-01-28T22:21:35.3025075+00:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="MURU" outcome="Warning" timestamp="2017-01-28T22:21:33.7570679+00:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Newtonsoft.Json' directly or indirectly referenced by the test container 'c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll' was not found.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod2" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" priority="9" id="214de298-9e86-176e-b7de-d3629f0bf75a">
+      <Execution timeOut="1800000" id="7378a45f-ec16-4f62-a912-d17a03968204" />
+      <Owners>
+        <Owner name="John" />
+      </Owners>
+      <Properties>
+        <Property>
+          <Key>__Internal_AsyncTypeName__</Key>
+          <Value>WebApiTestToDoTests.UnitTest1+&lt;TestMethod2&gt;d__1</Value>
+        </Property>
+      </Properties>
+      <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest1, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="9e6c41ac-6599-7a3e-4919-3a54848be7e2">
+      <Execution timeOut="1800000" id="610c28e6-791d-496d-8e2d-90c4a3ea6fe8" />
+      <Owners>
+        <Owner name="John" />
+      </Owners>
+      <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest1, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" executionId="610c28e6-791d-496d-8e2d-90c4a3ea6fe8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="214de298-9e86-176e-b7de-d3629f0bf75a" executionId="7378a45f-ec16-4f62-a912-d17a03968204" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="610c28e6-791d-496d-8e2d-90c4a3ea6fe8" testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" testName="TestMethod1" computerName="MURU" duration="00:00:00.0042207" startTime="2017-01-28T22:21:33.8791539+00:00" endTime="2017-01-28T22:21:33.9151794+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="610c28e6-791d-496d-8e2d-90c4a3ea6fe8">
+    </UnitTestResult>
+    <UnitTestResult executionId="7378a45f-ec16-4f62-a912-d17a03968204" testId="214de298-9e86-176e-b7de-d3629f0bf75a" testName="TestMethod2" computerName="MURU" duration="00:00:01.3597774" startTime="2017-01-28T22:21:33.9151794+00:00" endTime="2017-01-28T22:21:35.2754987+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7378a45f-ec16-4f62-a912-d17a03968204">
+      <Output>
+        <StdOut>Sucess
+Mina House Hotel
+Soho Abode Apartments - Oxford Street &amp;amp; Regent Street
+The Chesterfield Mayfair
+Park Avenue Belgravia
+Marriott Executive Apartments London, West India Quay
+The Exhibitionist Hotel
+Marlin Aldgate Tower Bridge
+Wardonia
+Fraser Suites Queens Gate
+ibis London Excel Docklands
+Lancaster Court Hotel
+citizenM London Bankside
+MStay 27 Paddington Hotel
+The Laslett Hotel
+The Hari</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

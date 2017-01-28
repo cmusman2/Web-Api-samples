@@ -29,6 +29,7 @@ namespace WebApiTestToDo.Models
                 new Location{City="Belfast", CountryCode="GB"},
                 new Location{City="Cardiff", CountryCode="GB"}, 
                 new Location{City="Liverpool", CountryCode="GB"},
+                new Location{City="Southport", CountryCode="GB"},
 
                 new Location{City="Leeds", CountryCode="GB"},
                 new Location{City="New Castle", CountryCode="GB"},
