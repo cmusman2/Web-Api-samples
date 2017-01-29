@@ -31,6 +31,6 @@ C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Newtonsoft.Json.xml
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\System.Net.Http.Formatting.xml
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\System.Web.Http.xml
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\System.Web.Http.WebHost.xml
+C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.pdb
-C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.csprojResolveAssemblyReference.cache

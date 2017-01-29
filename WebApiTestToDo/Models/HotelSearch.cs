@@ -9,7 +9,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using WebApiTestToDo.Models;
 
-namespace WebApiTestToDo.Controllers
+namespace WebApiTestToDo.Models
 {
     public class HotelSearch
     {
@@ -136,96 +136,8 @@ namespace WebApiTestToDo.Controllers
 
     }
 
-    [XmlRoot("hotellistresponse", Namespace = "http://v3.hotel.wsapi.ean.com/")]
-    public class HotelList
-    {
 
 
-        [XmlElement(ElementName = "hotellist", Namespace = "")]
-        public summryList Hotels { get; set; }
 
-        [XmlElement(Namespace = "")]
-        public String customersessionid { get; set; }
-        [XmlElement(Namespace = "")]
-        public String numberofroomsrequested { get; set; }
-        [XmlElement(Namespace = "")]
-        public String moreresultsavailable { get; set; }
-    }
-
-
-    public class summryList
-    {
-        [XmlElement(ElementName = "hotelsummary", Namespace = "")]
-        public List<hotelsummary> Hotels { get; set; }
-    }
-
-    public class hotelsummary
-    {
-        private String Rate;
-        private String ShortDescription;
-        
-
-        private String thumbnailUrl;
-        [XmlElement(Namespace = "")]
-        public String hotelid { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String name { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String address1 { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String city { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String postalcode { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String countrycode { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String tripadvisorratingurl { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String thumbnailurl { 
-            get 
-            {
-                if (!String.IsNullOrEmpty(thumbnailUrl))
-                {
-
-                    thumbnailUrl = thumbnailUrl.Replace("_t.", "_l.");
-                }
-                return thumbnailUrl;
-            } 
-            set { thumbnailUrl = "http://images.travelnow.com" + value; } 
-        }
-
-        [XmlElement(Namespace = "")]
-        public String ratecurrencycode { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String locationdescription { get; set; }
-
-        [XmlElement(Namespace = "")]
-        public String shortdescription { get { if (!String.IsNullOrEmpty(ShortDescription)) ShortDescription = ShortDescription.Substring(ShortDescription.IndexOf("br /&gt;") + 8) + "..."; return ShortDescription; } set { ShortDescription = value; } }
-
-        [DisplayFormat(DataFormatString = "{0:#.#}")]
-        [XmlElement(Namespace = "")]
-        public String lowrate { get { return getCurrencySymbol(ratecurrencycode) + " " + Rate; } set { Rate = value; } }
-
-
-        private string getCurrencySymbol(string cc)
-        {
-            if (cc == "USD") return "$";
-            else
-                if (cc == "EUR") return "€";
-            else
-                if (cc == "GBP") return "£";
-            else
-                return cc;
-
-
-        }
-    }
+  
 }

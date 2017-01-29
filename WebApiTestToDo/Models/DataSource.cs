@@ -1,15 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace WebApiTestToDo.Models
 {
     public class DataSource 
     {
+        private static List<Location> list = new List<Location>();
+        private static List<hotelsummary> htls = new List<hotelsummary>();
+
+
+        public static List<hotelsummary> hotels { get { return htls; } set { htls = value; } }
+
+
+        public async static Task<List<hotelsummary>> GetHotels(String city, DateTime sdate, DateTime edate)
+        {
+            if (city=="") //sample
+             htls = new List<hotelsummary>
+             {
+                new hotelsummary{hotelid="1",name="Marriott"},
+                new hotelsummary{hotelid="2",name="Holiday Inn"},
+                new hotelsummary{hotelid="3",name="Crowne Plaza"}
+
+             };
+            else
+            htls= await HotelSearch.GetData(city, sdate, edate);
+
+             return  htls;
+        }        
+
         public static List<Location> GetLocation(string loc)
         {
-            List<Location> list = new List<Location>()
+            list = new List<Location>()
             {
                 new Location{City="Aberdeen", CountryCode="GB"},
                 new Location{City="Edinburgh", CountryCode="GB"},
