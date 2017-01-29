@@ -60,16 +60,21 @@ namespace WebApiTestToDo.Controllers
 
 
             var hotels = DataSource.hotels;
+            hotelsummary hotel = null;
             if (hotels == null || hotels.Count == 0)
                 hotels = await DataSource.GetHotels(city, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
 
-            var htls = hotels.Where((h) => h.hotelid == Id);
+            if (hotels != null)
+            {
+                var htls = hotels.Where((h) => h.hotelid == Id);
 
-            hotelsummary hotel=htls.FirstOrDefault();
+                hotel = htls.FirstOrDefault();
+            }
 
             //Hotel hotel = new Hotel();
             if (hotel == null)
             {
+                hotel = new hotelsummary();
                 hotel.name = "London Marriott Hotel Kensington";
                 hotel.thumbnailurl = "http://images.lowestroomrates.com/hotels/1000000/20000/18800/18773/1d9042a6_l.jpg";
                 hotel.hotelid = "114200";
@@ -81,5 +86,49 @@ namespace WebApiTestToDo.Controllers
             return Ok(hotel);
 
         }
+
+
+
+        [DigestAuthorizationFilterAttribute]      
+        [Route("api/hotels/{hotelid}/{city}/{country}")]
+        public async Task<IHttpActionResult> GetHotelDetailsSpecials([FromUri(Name = "hotelid")]string Id, [FromUri(Name = "city")]string city, [FromUri(Name = "country")]string country)
+        {
+              
+            //if (hotels == null)
+            //{
+            //  hotels = await HotelSearch.GetData(city, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
+            //}
+
+            //var hotel = hotels.FirstOrDefault((h) => h.hotelid == Id);
+            //var hotel = hotels.FirstOrDefault();
+
+
+            var hotels = DataSource.hotels;
+            hotelsummary hotel =null;
+            if (hotels == null || hotels.Count == 0)
+                hotels = await DataSource.GetHotels(city, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
+
+            if (hotels != null)
+            {
+                var htls = hotels.Where((h) => h.hotelid == Id);
+
+                hotel = htls.FirstOrDefault();
+            }
+            //Hotel hotel = new Hotel();
+            if (hotel == null)
+            {
+                hotel = new hotelsummary();
+                hotel.name = "London Marriott Hotel Kensington";
+                hotel.thumbnailurl = "http://images.lowestroomrates.com/hotels/1000000/20000/18800/18773/1d9042a6_l.jpg";
+                hotel.hotelid = "114200";
+                hotel.city = "London";
+                hotel.address1 = "147 Cromwell Road, London, SW5 0TH, United Kingdom";
+                hotel.lowrate = "206.07";
+                hotel.postalcode = "SW5 0TH";
+            }
+            return Ok(hotel);
+
+        }
+
     }
 }

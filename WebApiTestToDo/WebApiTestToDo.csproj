@@ -109,6 +109,14 @@
     <Compile Include="Models\summryList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthenticateHotelUsers.cs" />
+    <Compile Include="Security\BasicAuthorizationFilterAttribute.cs" />
+    <Compile Include="Security\BasicAuthorizationFilterAttributeBase.cs" />
+    <Compile Include="Security\DigestAuthorizationFilterAttribute.cs" />
+    <Compile Include="Security\DigestAuthorizationFilterAttributeBase.cs" />
+    <Compile Include="Security\DigestHeader.cs" />
+    <Compile Include="Security\DigestNonce.cs" />
+    <Compile Include="Security\HashExtension.cs" />
+    <Compile Include="Security\StandardAuthorizationFilterAttributeBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
