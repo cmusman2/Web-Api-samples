@@ -63,6 +63,7 @@
 
                 <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
                 <input type="button" value="More info" class="searchbtn" onclick="findHotelDetails('12345', 'London')" />
+                <a   class="searchbtn" target="_blank" href="api/hotels/114200/London">See details</a>
             </div>
           </div>
         </td>
@@ -161,7 +162,7 @@
                             if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
                                 $("#gridview2").append('<tr><td width="5%"><img src="' + item.thumbnailurl + '"/></td>       <td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></td>' +
 
-                                    '<td class="bookbtntd"><a target="_blank" href="#" onclick="findHotelDetails(' + item.hotelid + ',' + item.city + ')" class="bookbtn">More&nbsp;info</a></td>' +
+                                    '<td class="bookbtntd"><a target="_blank"  class="searchbtn" href="api/hotels/'+item.hotelid+'/'+item.city+'">See details</a></td>' +
                                     '</tr>');
                             else
                                 $("#gridview2").append('<tr><td width="5%"></td><td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></td></tr>');
@@ -175,7 +176,8 @@
         }
 
 
-        function findHotelDetails(hi, city) {          
+        function findHotelDetails(hi, city) {
+
             $.getJSON('api/hotels/' + hi + '/' + city)
                 .done(function (data) {
 
@@ -183,7 +185,7 @@
                     // On success, 'data' contains a list of location.
                     $.each(data, function (key, item) {
 
-                        $("#loclist").append('<li>' + item.City + ', ' + item.CountryCode + '</li>');
+                       // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
 
                     });
 
@@ -196,24 +198,20 @@
 
 
         function findHotelDetails2(hi, city) {
-            $.ajax({
-                url: '/api/hotels/',
-                type: 'GET',
-                data: {
-                    hotelid: hi,
-                    city: city
-                },
-                dataType: 'json',
-                success: function (data) {
-                    $.each(data, function (index, v) {
-                        alert(index + ': ' + v.name);
+            $.getJSON('api/hotels/' + hi + '/' + city)
+                .done(function (data) {
+
+                    alert('success');
+                    // On success, 'data' contains a list of location.
+                    $.each(data, function (key, item) {
+
+                        // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
+
                     });
-                },
-                statusCode: {
-                    404: function (data) {                        
-                        alert('Failed'+Error);
-                    }
-                }
+
+                })
+            .fail(function (request, status, error) {
+                alert('failed:' + error);
             });
         }
 
