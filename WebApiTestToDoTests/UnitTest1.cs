@@ -27,7 +27,7 @@ namespace WebApiTestToDoTests
             if (enumer != null) enumer.MoveNext();
             city = enumer.Current.City;
             Assert.AreEqual(city, "Aberdeen");
-            //a-arrange
+            //a-arrange  
             //a-act
             //a-assert
 

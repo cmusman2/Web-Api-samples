@@ -57,7 +57,7 @@ namespace WebApiTestToDo.Models
         public String locationdescription { get; set; }
 
         [XmlElement(Namespace = "")]
-        public String shortdescription { get { if (!String.IsNullOrEmpty(ShortDescription)) ShortDescription = ShortDescription.Substring(ShortDescription.IndexOf("br /&gt;") + 8) + "..."; return ShortDescription; } set { ShortDescription = value; } }
+        public String shortdescription { get { if ((!String.IsNullOrEmpty(ShortDescription)) && (ShortDescription.IndexOf("br /&gt;") >0)) ShortDescription = ShortDescription.Substring(ShortDescription.IndexOf("br /&gt;") + 8) + "..."; return ShortDescription; } set { ShortDescription = value; } }
 
         [DisplayFormat(DataFormatString = "{0:#.#}")]
         [XmlElement(Namespace = "")]

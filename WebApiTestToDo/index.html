@@ -176,7 +176,7 @@
                             if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
                                 $("#gridview2").append('<tr><td width="5%"><img src="' + item.thumbnailurl + '"/></td>       <td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></td>' +
 
-                                    '<td class="bookbtntd"><a target="_blank"  class="searchbtn" href="api/hotels/'+item.hotelid+'/'+item.city+'">See details</a></td>' +
+                                    '<td class="bookbtntd"><form id="frmhd' + item.hotelid + '"><a target="_blank"  class="searchbtn" href="#" onclick="findHotelDetailsSub(' + item.hotelid + ')">See details</a><input type="hidden" id="hotelid" value="' + item.hotelid + '"/></form></td>' +
                                     '</tr>');
                             else
                                 $("#gridview2").append('<tr><td width="5%"></td><td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></td></tr>');
@@ -189,6 +189,31 @@
                 }); 
         }
 
+        
+        function findHotelDetailsSub(frm) {
+           
+            var frm = document.getElementById('frmhd' + frm);
+           
+            if (frm == null) return false;
+            alert(frm.hotelid.value);
+
+            $.getJSON('api/hotels/' + frm.hotelid.value + '/')
+                .done(function (data) {
+
+                    alert('success');
+                    // On success, 'data' contains a list of location.
+                    $.each(data, function (key, item) {
+
+                        // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
+
+                    });
+
+                })
+            .fail(function (request, status, error) {
+                alert('failed:' + error);
+            });
+
+        }
 
         function findHotelDetails(hi, city) {
 
