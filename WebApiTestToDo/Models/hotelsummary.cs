@@ -47,7 +47,7 @@ namespace WebApiTestToDo.Models
                 }
                 return thumbnailUrl;
             }
-            set { thumbnailUrl = "http://images.travelnow.com" + value; }
+            set { thumbnailUrl = "http://images.lowestroomrates.com" + value; }
         }
 
         [XmlElement(Namespace = "")]

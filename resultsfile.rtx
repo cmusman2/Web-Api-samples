@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="5b9c47a5-9d99-4577-8548-cae367b3a862" name="SYSTEM@MURU 2017-01-31 22:06:52" runUser="NT AUTHORITY\SYSTEM" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <TestSettings name="Default Test Settings" id="1529b49a-31b2-4fe0-8904-899547e6fce5">
-    <Deployment userDeploymentRoot="C:\net\WebApiTestToDoRep" useDefaultDeploymentRoot="false" runDeploymentRoot="SYSTEM_MURU 2017-01-31 22_06_52" />
+<TestRun id="b2041fa7-997a-4d79-aa98-da0bbafcd24e" name="SYSTEM@MURU 2017-02-06 22:36:08" runUser="NT AUTHORITY\SYSTEM" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="c3752f4d-28bb-4325-9ed6-73370923871c">
+    <Deployment userDeploymentRoot="C:\net\WebApiTestToDoRep" useDefaultDeploymentRoot="false" runDeploymentRoot="SYSTEM_MURU 2017-02-06 22_36_08" />
     <Execution>
       <TestTypeSpecific />
       <AgentRule name="Execution Agents">
@@ -9,21 +9,21 @@
     </Execution>
     <Properties />
   </TestSettings>
-  <Times creation="2017-01-31T22:06:52.2121982+00:00" queuing="2017-01-31T22:06:52.4403420+00:00" start="2017-01-31T22:06:52.5183972+00:00" finish="2017-01-31T22:06:54.8314654+00:00" />
+  <Times creation="2017-02-06T22:36:08.9734603+00:00" queuing="2017-02-06T22:36:09.2156315+00:00" start="2017-02-06T22:36:09.2876825+00:00" finish="2017-02-06T22:36:10.8277760+00:00" />
   <ResultSummary outcome="Completed">
     <Counters total="6" executed="6" passed="6" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
   <TestDefinitions>
     <UnitTest name="TestMethod1" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="46842e0c-7fe3-503b-7146-aa3eee01186d">
-      <Execution timeOut="1800000" id="f5ab193e-e465-4523-b664-6317e94065af" />
+      <Execution timeOut="1800000" id="c440130c-d6e9-44a3-b9cc-128164b64d66" />
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest2, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
     </UnitTest>
     <UnitTest name="TestMethod3" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="a91f06ba-6ec2-0d38-cdef-247dca4e6c76">
-      <Execution timeOut="1800000" id="7473e037-38cd-4925-8cf0-b03554539f49" />
+      <Execution timeOut="1800000" id="dea8fe95-feb3-432f-a4ba-1f47685217eb" />
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest2, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod3" />
     </UnitTest>
     <UnitTest name="TestMethod2" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" priority="9" id="214de298-9e86-176e-b7de-d3629f0bf75a">
-      <Execution timeOut="1800000" id="711169ec-5c25-4b8d-8d38-163a534bcd51" />
+      <Execution timeOut="1800000" id="31e226f5-289b-464e-926b-b573764c9108" />
       <Owners>
         <Owner name="John" />
       </Owners>
@@ -36,18 +36,18 @@
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest1, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
     </UnitTest>
     <UnitTest name="TestMethod2" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="d072c299-29ad-571b-a96e-5dcc7608c7d9">
-      <Execution timeOut="1800000" id="fbe26932-df52-450c-bece-fdecb6ec51bc" />
+      <Execution timeOut="1800000" id="b37e17d2-72ad-4989-8886-72f1dfccda1e" />
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest2, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod2" />
     </UnitTest>
     <UnitTest name="TestMethod1" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="9e6c41ac-6599-7a3e-4919-3a54848be7e2">
-      <Execution timeOut="1800000" id="56158003-19fa-4a77-8f10-b925212d8472" />
+      <Execution timeOut="1800000" id="37d9edb4-38ef-48be-82b7-6ed759ea6724" />
       <Owners>
         <Owner name="John" />
       </Owners>
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest1, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
     </UnitTest>
     <UnitTest name="TestMethod1" storage="c:\net\webapitesttodorep\webapitesttodotests\bin\debug\webapitesttodotests.dll" id="9bbd80df-aa32-cea4-eee5-6db14ec375de">
-      <Execution timeOut="1800000" id="81c96c10-a358-4798-abdf-e796e0444031" />
+      <Execution timeOut="1800000" id="d1b8b824-033b-4a33-909a-0520bf621710" />
       <TestMethod codeBase="C:/net/WebApiTestToDoRep/WebApiTestToDoTests/bin/Debug/WebApiTestToDoTests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WebApiTestToDoTests.UnitTest3, WebApiTestToDoTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
     </UnitTest>
   </TestDefinitions>
@@ -56,43 +56,43 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" executionId="56158003-19fa-4a77-8f10-b925212d8472" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="214de298-9e86-176e-b7de-d3629f0bf75a" executionId="711169ec-5c25-4b8d-8d38-163a534bcd51" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="46842e0c-7fe3-503b-7146-aa3eee01186d" executionId="f5ab193e-e465-4523-b664-6317e94065af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="d072c299-29ad-571b-a96e-5dcc7608c7d9" executionId="fbe26932-df52-450c-bece-fdecb6ec51bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="a91f06ba-6ec2-0d38-cdef-247dca4e6c76" executionId="7473e037-38cd-4925-8cf0-b03554539f49" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="9bbd80df-aa32-cea4-eee5-6db14ec375de" executionId="81c96c10-a358-4798-abdf-e796e0444031" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" executionId="37d9edb4-38ef-48be-82b7-6ed759ea6724" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="214de298-9e86-176e-b7de-d3629f0bf75a" executionId="31e226f5-289b-464e-926b-b573764c9108" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="46842e0c-7fe3-503b-7146-aa3eee01186d" executionId="c440130c-d6e9-44a3-b9cc-128164b64d66" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d072c299-29ad-571b-a96e-5dcc7608c7d9" executionId="b37e17d2-72ad-4989-8886-72f1dfccda1e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a91f06ba-6ec2-0d38-cdef-247dca4e6c76" executionId="dea8fe95-feb3-432f-a4ba-1f47685217eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9bbd80df-aa32-cea4-eee5-6db14ec375de" executionId="d1b8b824-033b-4a33-909a-0520bf621710" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="56158003-19fa-4a77-8f10-b925212d8472" testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" testName="TestMethod1" computerName="MURU" duration="00:00:00.0048033" startTime="2017-01-31T22:06:52.5264038+00:00" endTime="2017-01-31T22:06:52.5644307+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56158003-19fa-4a77-8f10-b925212d8472">
+    <UnitTestResult executionId="37d9edb4-38ef-48be-82b7-6ed759ea6724" testId="9e6c41ac-6599-7a3e-4919-3a54848be7e2" testName="TestMethod1" computerName="MURU" duration="00:00:00.0044173" startTime="2017-02-06T22:36:09.2966906+00:00" endTime="2017-02-06T22:36:09.3307132+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="37d9edb4-38ef-48be-82b7-6ed759ea6724">
     </UnitTestResult>
-    <UnitTestResult executionId="711169ec-5c25-4b8d-8d38-163a534bcd51" testId="214de298-9e86-176e-b7de-d3629f0bf75a" testName="TestMethod2" computerName="MURU" duration="00:00:02.2187912" startTime="2017-01-31T22:06:52.5654308+00:00" endTime="2017-01-31T22:06:54.7845701+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="711169ec-5c25-4b8d-8d38-163a534bcd51">
+    <UnitTestResult executionId="31e226f5-289b-464e-926b-b573764c9108" testId="214de298-9e86-176e-b7de-d3629f0bf75a" testName="TestMethod2" computerName="MURU" duration="00:00:01.4495857" startTime="2017-02-06T22:36:09.3317145+00:00" endTime="2017-02-06T22:36:10.7813534+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31e226f5-289b-464e-926b-b573764c9108">
       <Output>
         <StdOut>Sucess
-The Chesterfield Mayfair
 Mina House Hotel
-The Exhibitionist Hotel
-Soho Abode Apartments - Oxford Street &amp;amp; Regent Street
-Marriott Executive Apartments London, West India Quay
-Marlin Aldgate Tower Bridge
-ibis London Excel Docklands
 Lancaster Court Hotel
-Fraser Suites Queens Gate
-Marlin Canary Wharf
-Wardonia
-Hotel 55
-The Hari
-St Giles London - A St Giles Hotel
-Doubletree by Hilton London Marble Arch</StdOut>
+Judd Hotel
+Queensway Hotel
+London Court Hotel
+Barry House
+Trebovir Hotel
+Princes Square Apartments
+Castleton Hotel
+New Linden
+Holiday Inn Express London Hammersmith
+Rose Court Hotel
+Ashley Hotel
+Gateway Hotel
+Quality Hotel Hampstead</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="f5ab193e-e465-4523-b664-6317e94065af" testId="46842e0c-7fe3-503b-7146-aa3eee01186d" testName="TestMethod1" computerName="MURU" duration="00:00:00.0011296" startTime="2017-01-31T22:06:54.7855554+00:00" endTime="2017-01-31T22:06:54.7875728+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5ab193e-e465-4523-b664-6317e94065af">
+    <UnitTestResult executionId="c440130c-d6e9-44a3-b9cc-128164b64d66" testId="46842e0c-7fe3-503b-7146-aa3eee01186d" testName="TestMethod1" computerName="MURU" duration="00:00:00.0009877" startTime="2017-02-06T22:36:10.7823396+00:00" endTime="2017-02-06T22:36:10.7843398+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c440130c-d6e9-44a3-b9cc-128164b64d66">
     </UnitTestResult>
-    <UnitTestResult executionId="fbe26932-df52-450c-bece-fdecb6ec51bc" testId="d072c299-29ad-571b-a96e-5dcc7608c7d9" testName="TestMethod2" computerName="MURU" duration="00:00:00.0001636" startTime="2017-01-31T22:06:54.7885575+00:00" endTime="2017-01-31T22:06:54.7895606+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fbe26932-df52-450c-bece-fdecb6ec51bc">
+    <UnitTestResult executionId="b37e17d2-72ad-4989-8886-72f1dfccda1e" testId="d072c299-29ad-571b-a96e-5dcc7608c7d9" testName="TestMethod2" computerName="MURU" duration="00:00:00.0001379" startTime="2017-02-06T22:36:10.7853433+00:00" endTime="2017-02-06T22:36:10.7863412+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b37e17d2-72ad-4989-8886-72f1dfccda1e">
     </UnitTestResult>
-    <UnitTestResult executionId="7473e037-38cd-4925-8cf0-b03554539f49" testId="a91f06ba-6ec2-0d38-cdef-247dca4e6c76" testName="TestMethod3" computerName="MURU" duration="00:00:00.0001618" startTime="2017-01-31T22:06:54.7905607+00:00" endTime="2017-01-31T22:06:54.7905607+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7473e037-38cd-4925-8cf0-b03554539f49">
+    <UnitTestResult executionId="dea8fe95-feb3-432f-a4ba-1f47685217eb" testId="a91f06ba-6ec2-0d38-cdef-247dca4e6c76" testName="TestMethod3" computerName="MURU" duration="00:00:00.0001397" startTime="2017-02-06T22:36:10.7873583+00:00" endTime="2017-02-06T22:36:10.7883454+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dea8fe95-feb3-432f-a4ba-1f47685217eb">
     </UnitTestResult>
-    <UnitTestResult executionId="81c96c10-a358-4798-abdf-e796e0444031" testId="9bbd80df-aa32-cea4-eee5-6db14ec375de" testName="TestMethod1" computerName="MURU" duration="00:00:00.0002454" startTime="2017-01-31T22:06:54.7915596+00:00" endTime="2017-01-31T22:06:54.7925600+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81c96c10-a358-4798-abdf-e796e0444031">
+    <UnitTestResult executionId="d1b8b824-033b-4a33-909a-0520bf621710" testId="9bbd80df-aa32-cea4-eee5-6db14ec375de" testName="TestMethod1" computerName="MURU" duration="00:00:00.0001965" startTime="2017-02-06T22:36:10.7893431+00:00" endTime="2017-02-06T22:36:10.7903595+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d1b8b824-033b-4a33-909a-0520bf621710">
     </UnitTestResult>
   </Results>
 </TestRun>
