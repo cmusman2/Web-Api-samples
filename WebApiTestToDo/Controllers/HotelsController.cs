@@ -22,8 +22,8 @@ namespace WebApiTestToDo.Controllers
         public async Task<IHttpActionResult> GetHotel([FromUri(Name = "id")]string Id)
         {
 
-            var hotels = DataSource.hotels;
-            if ( hotels == null  ||  hotels.Count == 0 )
+            var hotels= DataSource.hotels;
+          //  if ( hotels == null  ||  hotels.Count == 0 )
                 hotels = await DataSource.GetHotels(Id, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
 
 
