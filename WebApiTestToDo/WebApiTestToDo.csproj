@@ -97,15 +97,24 @@
     <Compile Include="Controllers\HotelDetailsController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Models\ClientAuthenticateRemote.cs" />
     <Compile Include="Models\DataSource.cs" />
+    <Compile Include="Models\HotelAmenity.cs" />
+    <Compile Include="Models\HotelImage.cs" />
     <Compile Include="Models\HotelListcs.cs" />
+    <Compile Include="Models\HotelRoom.cs" />
     <Compile Include="Models\HotelSearch.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\HotelDetails.cs" />
     <Compile Include="Models\hotelsummary.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Logging\DatabaseLogger.cs" />
+    <Compile Include="Models\Logging\FileLogger.cs" />
+    <Compile Include="Models\Logging\ILogger.cs" />
+    <Compile Include="Models\Logging\Logger.cs" />
+    <Compile Include="Models\Logging\LoggingTypes.cs" />
     <Compile Include="Models\summryList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthenticateHotelUsers.cs" />

@@ -8,18 +8,60 @@ using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
 using WebApiTestToDo.Models;
+using WebApiTestToDo.Models.Logging;
 
 namespace WebApiTestToDo.Models
 {
     public class HotelSearch
     {
-        public async static Task<List<Hotel>> GetData(int v)
+        public async static Task<HotelDetails> GetHotelDetails(int v) 
         {
-           //return await Hotels.getHotels();
-            return null;
+            //return await Hotels.getHotels();
+            
+            string res = await getDetailsAsync(v);
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+            StringReader textReader = new StringReader(res);
+            XmlReader xml = XmlReader.Create(textReader, settings);
+
+            XmlSerializer xser = new XmlSerializer(typeof(HotelDetails), "http://v3.hotel.wsapi.ean.com/");
+            HotelDetails hd = (HotelDetails)xser.Deserialize(xml);
+            Logger.log(String.Format("Sucess : hotel details extracted for %d", v));
+            return hd;
 
         }
 
+
+
+        public static async Task<string> getDetailsAsync(int hid)
+        {
+            string auth = await new ClientAuthenticateRemote().authenticate();
+            if (auth == "") return "";
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+
+                try
+                {
+                    var query = new System.Net.Http.FormUrlEncodedContent(new[]
+                    {
+                  new KeyValuePair<string, string>("xuid", auth),
+                  new KeyValuePair<string, string>("yzid0x", auth),
+                  new KeyValuePair<string, string>("hotelid", hid.ToString()),
+
+                 });
+
+                    var result = client.PostAsync("/src/htllist.php", query).Result;
+                    string resultContent = result.Content.ReadAsStringAsync().Result;
+                    return resultContent;
+                }
+                catch (Exception e)
+                {
+                    Logger.log(e.Message);
+                }
+            }
+            return "";
+        }
 
 
         public async static Task<List<hotelsummary>> GetData(String city, DateTime sdate, DateTime edate)
@@ -70,14 +112,14 @@ namespace WebApiTestToDo.Models
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Logger.log(e.Message);
                 }
 
                 return null;
             }
         }
 
-        public static Task<String> GetData2(String city, DateTime sdate, DateTime edate)
+        public static async Task<String> GetData2(String city, DateTime sdate, DateTime edate)
         {
 
 
@@ -87,15 +129,8 @@ namespace WebApiTestToDo.Models
                 try
                 {
                     client.BaseAddress = new Uri("http://www.lowestroomrates.com");
-                    var query = new System.Net.Http.FormUrlEncodedContent(new[]
-              {
-                  new KeyValuePair<string, string>("sign", "tak12e"),
-                  new KeyValuePair<string, string>("pin", "vS0GKOzRwyZBSJX8gO2bHH4XVYhv-bNi2Eyuf4ZhvHs1uXmTq"),
-                 
-                 });
 
-                    var result = client.PostAsync("/src/authenticate.php", query).Result;
-                    string resultContent = result.Content.ReadAsStringAsync().Result;
+                    string resultContent = await new ClientAuthenticateRemote().authenticate();
 
                     String sd = sdate.ToString("dd/MM/yy");
                     String ed = edate.ToString("dd/MM/yy");
@@ -103,7 +138,7 @@ namespace WebApiTestToDo.Models
 
 
 
-                    query = new System.Net.Http.FormUrlEncodedContent(new[]
+                 var   query = new System.Net.Http.FormUrlEncodedContent(new[]
               {
                   new KeyValuePair<string, string>("xuid", resultContent),
                   new KeyValuePair<string, string>("yzid0x", resultContent),
@@ -115,13 +150,13 @@ namespace WebApiTestToDo.Models
                  
               });
 
-                    result = client.PostAsync("/src/htllist.php", query).Result;
+                   var result = client.PostAsync("/src/htllist.php", query).Result;
                     resultContent = result.Content.ReadAsStringAsync().Result;
-                    return Task.FromResult(resultContent);
+                    return  resultContent ;
                 }
                 catch (Exception exp)
                 {
-                    Console.Out.WriteLine("Error:" + exp.Message);
+                    Logger.log("Error:" + exp.Message);
                 }
 
                 finally

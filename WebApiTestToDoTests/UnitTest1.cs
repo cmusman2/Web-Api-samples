@@ -5,6 +5,7 @@ using WebApiTestToDo.Models;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebApiTestToDo.Models.Logging;
 
 namespace WebApiTestToDoTests
 {
@@ -12,8 +13,9 @@ namespace WebApiTestToDoTests
     public class UnitTest1
     {
         [TestMethod]
-        [Owner("John")]
-        public void TestMethod1()
+        [Owner("john")]
+        [Priority(2)]
+        public void TestMethodLocationList()
         {
 
             LocationsController c = new  LocationsController();
@@ -34,14 +36,33 @@ namespace WebApiTestToDoTests
         }
 
         [TestMethod]
-        [Priority(9)]
-        [Owner("John")]
-        public async Task TestMethod2() 
+        [Priority(2)]
+        public async Task TestMethodHotelSearch() 
         {
 
             HotelsController hc = new HotelsController();
             System.Web.Http.IHttpActionResult hl = await hc.GetHotel("London");                      
             Assert.AreNotEqual(hl, 123);
+
+        }
+
+        [TestMethod]
+        [Priority(1)]
+        public async Task TestMethodAuth()
+        {
+            string auth = await new ClientAuthenticateRemote().authenticate();
+            Assert.AreNotEqual(auth, "");
+
+        }
+
+        [TestMethod]
+        [Priority(9)]
+        public void TestMethodFileLog()
+        {
+            Logger.log(LogTargets.File, "message");
+            string slog = "";
+            Assert.AreEqual(slog, "");
+
 
         }
     }
