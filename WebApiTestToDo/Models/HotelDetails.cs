@@ -36,9 +36,9 @@ namespace WebApiTestToDo.Models
         public string LocalArea { get; set; }
         public string HotelPolicy  { get; set; }
 
-        public List<HotelRoom> HotelRooms { get; set; }
-        public List<HotelImage> HotelImages { get; set; }
-        public List<HotelAmenity> HotelAmenities { get; set; }  
+      //  public List<HotelRoom> HotelRooms { get; set; }
+      //  public List<HotelImage> HotelImages { get; set; }
+      //  public List<HotelAmenity> HotelAmenities { get; set; }  
 
 
     }

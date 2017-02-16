@@ -17,16 +17,23 @@ namespace WebApiTestToDo.Models
         public async static Task<HotelDetails> GetHotelDetails(int v) 
         {
             //return await Hotels.getHotels();
-            
-            string res = await getDetailsAsync(v);
+            HotelDetails hd = null;
 
-            XmlReaderSettings settings = new XmlReaderSettings();
-            StringReader textReader = new StringReader(res);
-            XmlReader xml = XmlReader.Create(textReader, settings);
+            try
+            {
+                string res = await getDetailsAsync(v);
+                XmlReaderSettings settings = new XmlReaderSettings();
+                StringReader textReader = new StringReader(res);
+                XmlReader xml = XmlReader.Create(textReader, settings);
 
-            XmlSerializer xser = new XmlSerializer(typeof(HotelDetails), "http://v3.hotel.wsapi.ean.com/");
-            HotelDetails hd = (HotelDetails)xser.Deserialize(xml);
-            Logger.log(String.Format("Sucess : hotel details extracted for %d", v));
+                XmlSerializer xser = new XmlSerializer(typeof(HotelDetails), "http://v3.hotel.wsapi.ean.com/");
+                hd = (HotelDetails)xser.Deserialize(xml);
+                Logger.log(String.Format("Sucess : hotel details extracted for %d", v));
+            }
+            catch (Exception e)
+            {
+                Logger.log(e.Message);
+            }
             return hd;
 
         }
@@ -41,26 +48,23 @@ namespace WebApiTestToDo.Models
             using (var client = new System.Net.Http.HttpClient())
             {
 
-                try
+
+                client.BaseAddress = new Uri("http://www.lowestroomrates.com");
+                var query = new System.Net.Http.FormUrlEncodedContent(new[]
                 {
-                    var query = new System.Net.Http.FormUrlEncodedContent(new[]
-                    {
                   new KeyValuePair<string, string>("xuid", auth),
                   new KeyValuePair<string, string>("yzid0x", auth),
-                  new KeyValuePair<string, string>("hotelid", hid.ToString()),
+                  new KeyValuePair<string, string>("hotelId", hid.ToString()),
 
                  });
 
-                    var result = client.PostAsync("/src/htllist.php", query).Result;
-                    string resultContent = result.Content.ReadAsStringAsync().Result;
-                    return resultContent;
-                }
-                catch (Exception e)
-                {
-                    Logger.log(e.Message);
-                }
+                var result = client.PostAsync("/src/htllistDetail.php", query).Result;
+                string resultContent = result.Content.ReadAsStringAsync().Result;
+                return resultContent;
+
+
             }
-            return "";
+             
         }
 
 

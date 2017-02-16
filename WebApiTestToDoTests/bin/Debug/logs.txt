@@ -2,3 +2,14 @@
 2017-02-15 11:49:46:655 : message
 2017-02-15 11:52:09:375 : message
 2017-02-15 11:52:24:443 : message
+2017-02-15 08:24:06:669 : message
+2017-02-15 08:27:54:087 : message
+2017-02-15 08:32:38:104 : An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.
+2017-02-15 08:33:10:219 : An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.
+2017-02-15 08:35:34:681 : An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.
+2017-02-15 08:46:43:406 : There is an error in XML document (0, 0).
+2017-02-15 08:49:16:668 : There is an error in XML document (0, 0).
+2017-02-15 08:58:45:623 : There is an error in XML document (0, 0).
+2017-02-15 09:07:32:400 : There is an error in XML document (1, 2).
+2017-02-15 09:08:57:344 : There is an error in XML document (1, 2).
+2017-02-16 11:11:34:836 : There is an error in XML document (1, 2).

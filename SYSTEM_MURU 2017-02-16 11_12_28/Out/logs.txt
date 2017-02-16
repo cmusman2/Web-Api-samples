@@ -1,0 +1,2 @@
+2017-02-16 11:12:29:326 : message
+2017-02-16 11:12:31:514 : There is an error in XML document (1, 2).
