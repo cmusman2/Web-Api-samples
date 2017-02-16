@@ -13,6 +13,7 @@ namespace WebApiTestToDo.Models.Logging
         public async  void logData(string v)
         {
             Boolean append = true;
+            
             using (StreamWriter sr = new StreamWriter(filePath, append))
             {
                 //CultureInfo ci = CultureInfo.CreateSpecificCulture("en-GB");                 

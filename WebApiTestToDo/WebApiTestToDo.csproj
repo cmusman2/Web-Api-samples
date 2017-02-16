@@ -85,6 +85,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="HotelDetails.html" />
+    <Content Include="error.html" />
+    <Content Include="error500.html" />
     <Content Include="tests.html" />
     <Content Include="Search.html" />
     <Content Include="indexorig.html" />

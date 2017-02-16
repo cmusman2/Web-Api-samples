@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,13 @@ namespace WebApiTestToDo.Models.Logging
 
         public static void log(LogTargets _loggingTarget, string message)
         {
+            // AppSettingsSection appSettingSection = (AppSettingsSection)ConfigurationManager.GetSection("Logging");
+            // string s =appSettingSection.Settings.AllKeys[0];
+
+            string s= ConfigurationManager.AppSettings["Logging"];
+            if (s.ToLower() != "on") return;
+            
+
             switch (_loggingTarget)
             {
                case LogTargets.File: _loger = new FileLogger();break;
@@ -23,6 +31,9 @@ namespace WebApiTestToDo.Models.Logging
 
         public static void log(string message)
         {
+            string s = ConfigurationManager.AppSettings["Logging"];
+            if (s.ToLower() != "on") return;
+
             if ((_loger==null) && !(_loger is FileLogger))
             _loger = new FileLogger();            
             _loger.logData(message);
