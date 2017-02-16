@@ -19,12 +19,13 @@ namespace WebApiTestToDo.Controllers
             return hotels;
         }
 
-        public async Task<IHttpActionResult> GetHotel([FromUri(Name = "id")]string Id)
+        [Route("api/hotels/{city}")]
+        public async Task<IHttpActionResult> GetHotel([FromUri(Name = "city")]string city)
         {
 
-            var hotels= DataSource.hotels;
+            var hotels= DataSource.hotels; 
           //  if ( hotels == null  ||  hotels.Count == 0 )
-                hotels = await DataSource.GetHotels(Id, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
+                hotels = await DataSource.GetHotels(city, DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
 
 
           //  List<hotelsummary> hs= await  HotelSearch.GetData("London", DateTime.Now.AddDays(1), DateTime.Now.AddDays(2));
@@ -41,6 +42,16 @@ namespace WebApiTestToDo.Controllers
             return Ok(hotels);
             
             
+        }
+
+        [DigestAuthorizationFilterAttribute]
+        [Route("api/hoteldetails/{hotelid}")]
+        public async Task<IHttpActionResult> GetHotelDetails([FromUri(Name = "hotelid")]int hid) 
+        {
+
+           var htl= await DataSource.GetHotelDetails(hid);
+            return Ok(htl);
+
         }
 
         // [AuthenticateHotelUsers]

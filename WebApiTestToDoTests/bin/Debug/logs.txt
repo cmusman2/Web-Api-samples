@@ -13,3 +13,11 @@
 2017-02-15 09:07:32:400 : There is an error in XML document (1, 2).
 2017-02-15 09:08:57:344 : There is an error in XML document (1, 2).
 2017-02-16 11:11:34:836 : There is an error in XML document (1, 2).
+2017-02-16 12:35:41:795 : There is an error in XML document (1, 2).
+2017-02-16 01:03:47:298 : There was an error reflecting type 'WebApiTestToDo.Models.HotelDetails'.
+2017-02-16 01:03:54:561 : There was an error reflecting type 'WebApiTestToDo.Models.HotelDetails'.
+2017-02-16 01:04:09:809 : There was an error reflecting type 'WebApiTestToDo.Models.HotelDetails'.
+2017-02-16 02:12:58:673 : Sucess : hotel details extracted for %d
+2017-02-16 02:13:05:722 : Sucess : hotel details extracted for %d
+2017-02-16 02:13:43:863 : Sucess : hotel details extracted for %d
+2017-02-16 02:26:20:257 : Sucess : hotel details extracted for %d

@@ -24,6 +24,9 @@ namespace WebApiTestToDo.Models
         public String address1 { get; set; }
 
         [XmlElement(Namespace = "")]
+        public String address2 { get; set; }
+
+        [XmlElement(Namespace = "")]
         public String city { get; set; }
 
         [XmlElement(Namespace = "")]

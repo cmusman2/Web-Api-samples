@@ -15,6 +15,14 @@ namespace WebApiTestToDo.Models
         public static List<hotelsummary> hotels { get { return htls; } set { htls = value; } }
 
 
+        public async static Task<HotelDescription> GetHotelDetails(int hid)
+        {
+            HotelDescription h= await HotelSearch.GetHotelDetails(hid);
+
+            return h;
+        }
+
+
         public async static Task<List<hotelsummary>> GetHotels(String city, DateTime sdate, DateTime edate)
         {
             if (city=="noloc")

@@ -17,8 +17,8 @@ namespace WebApiTestToDoTests
         [Priority(1)]
         public async Task TestMethodHotelDetails()
         {
-            HotelDetails hd =   await HotelSearch.GetHotelDetails(274263);
-            Assert.AreEqual(hd, null);
+            HotelDescription hd =   await HotelSearch.GetHotelDetails(274263);
+            Assert.AreNotEqual(hd, null);
         }
     }
 }

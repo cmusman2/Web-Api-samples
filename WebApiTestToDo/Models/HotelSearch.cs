@@ -14,20 +14,27 @@ namespace WebApiTestToDo.Models
 {
     public class HotelSearch
     {
-        public async static Task<HotelDetails> GetHotelDetails(int v) 
+        public async static Task<HotelDescription> GetHotelDetails(int v) 
         {
             //return await Hotels.getHotels();
-            HotelDetails hd = null;
+            HotelDescription hd = null;
 
             try
             {
-                string res = await getDetailsAsync(v);
+                string res = "";
+                /* if (File.Exists("hd.xml"))
+                res = File.ReadAllText("hd.xml");
+                 else*/
+                  res = await getDetailsAsync(v);
+
+                 
+
                 XmlReaderSettings settings = new XmlReaderSettings();
                 StringReader textReader = new StringReader(res);
                 XmlReader xml = XmlReader.Create(textReader, settings);
-
-                XmlSerializer xser = new XmlSerializer(typeof(HotelDetails), "http://v3.hotel.wsapi.ean.com/");
-                hd = (HotelDetails)xser.Deserialize(xml);
+                 
+                XmlSerializer xser = new XmlSerializer(typeof(HotelDescription), "http://v3.hotel.wsapi.ean.com/");
+                hd = (HotelDescription)xser.Deserialize(xml);
                 Logger.log(String.Format("Sucess : hotel details extracted for %d", v));
             }
             catch (Exception e)

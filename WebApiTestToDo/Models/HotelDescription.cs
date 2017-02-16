@@ -2,11 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace WebApiTestToDo.Models
 {
-    public class HotelDetails
+    [XmlRoot("HotelInformationResponse", Namespace = "http://v3.hotel.wsapi.ean.com/")]
+    public class HotelDescription
     {
+        [XmlElement(ElementName = "HotelSummary", Namespace = "")]
+        public hotelSummaryDetails HotelSummary { get; set; }
+
+        [XmlElement(ElementName = "HotelDetails", Namespace = "")]
+        public HotelDetailsDescription HotelDetails  { get; set; }
+
+        [XmlElement(ElementName = "HotelImages", Namespace = "")]
+        public HotelImages HotelImages { get; set; }
+
+
+        [XmlElement(ElementName = "RoomTypes", Namespace = "")]
+        public HotelRooms HotelRooms { get; set; }
+
+        [XmlElement(ElementName = "PropertyAmenities", Namespace = "")]
+        public PropertyAmenities PropertyAmenities { get; set; } 
+
+        /*
         public string EanHotelId { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
@@ -34,11 +53,11 @@ namespace WebApiTestToDo.Models
         public string Description { get; set; }
         public string Dining { get; set; }
         public string LocalArea { get; set; }
-        public string HotelPolicy  { get; set; }
+        public string HotelPolicy  { get; set; }*/
 
-      //  public List<HotelRoom> HotelRooms { get; set; }
-      //  public List<HotelImage> HotelImages { get; set; }
-      //  public List<HotelAmenity> HotelAmenities { get; set; }  
+        //  public List<HotelRoom> HotelRooms { get; set; }
+        //  public List<HotelImage> HotelImages { get; set; }
+        //  public List<HotelAmenity> HotelAmenities { get; set; }  
 
 
     }
