@@ -17,7 +17,7 @@ namespace WebApiTestToDo.Models.Logging
             // string s =appSettingSection.Settings.AllKeys[0];
 
             string s= ConfigurationManager.AppSettings["Logging"];
-            if (s.ToLower() != "on") return;
+            if ((s==null) || (s.ToLower() != "on")) return;
             
 
             switch (_loggingTarget)
@@ -32,7 +32,7 @@ namespace WebApiTestToDo.Models.Logging
         public static void log(string message)
         {
             string s = ConfigurationManager.AppSettings["Logging"];
-            if (s.ToLower() != "on") return;
+            if ((s == null) || (s.ToLower() != "on")) return;
 
             if ((_loger==null) && !(_loger is FileLogger))
             _loger = new FileLogger();            
