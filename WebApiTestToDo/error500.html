@@ -266,7 +266,7 @@
             function findHotelDetailsSub(frm) {
 
                 var frm = document.getElementById('frmhd' + frm);
-
+                alert(frm)
                 if (frm == null) return false;
                 alert(frm.hotelid.value);
 
@@ -275,7 +275,7 @@
 
                         // On success, 'data' contains a list of location.
                         $.each(data, function (key, item) {
-
+                            alert(frm)
                             // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
 
                         });

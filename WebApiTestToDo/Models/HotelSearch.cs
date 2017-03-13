@@ -110,7 +110,7 @@ namespace WebApiTestToDo.Models
                     int counts = 0;
 
                     List<hotelsummary> hls = new List<hotelsummary>();
-
+                    if (hl.Hotels != null) 
                     foreach (var h in hl.Hotels.Hotels)
                     {
                         hls.Add(h);

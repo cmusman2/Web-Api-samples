@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiTestToDo", "WebApiTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiTestToDoTests", "WebApiTestToDoTests\WebApiTestToDoTests.csproj", "{17DC8AFF-33CC-4FA8-AC70-B4552B616205}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookaHotel", "BookaHotel\BookaHotel.csproj", "{7BCDF20A-0CC4-4AD3-AA37-00F7EB16F257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{17DC8AFF-33CC-4FA8-AC70-B4552B616205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17DC8AFF-33CC-4FA8-AC70-B4552B616205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17DC8AFF-33CC-4FA8-AC70-B4552B616205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCDF20A-0CC4-4AD3-AA37-00F7EB16F257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCDF20A-0CC4-4AD3-AA37-00F7EB16F257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCDF20A-0CC4-4AD3-AA37-00F7EB16F257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCDF20A-0CC4-4AD3-AA37-00F7EB16F257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

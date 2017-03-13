@@ -59,6 +59,8 @@
        .htlopt li{float:left; list-style-type:none;}
 
        .gv{width:90%}
+
+       .htloptborder{border-bottom-color:#1e90ff;border-bottom-width:unset;border-bottom-style:dotted}
     </style>
     
 
@@ -230,11 +232,13 @@
                                          '<li style="width:250px"><img width="250px" src="' + item.thumbnailurl + '" /></li>' +
                                          '<li style="float:left;width:50%"><table width="100%"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
                                          '<li>'+
-                                           '<span class="priceDisplay">' + item.lowrate + '</span>  <a target="_blank" href="http://www.lowestroomrates.com/avails/wa  item.hotelid  " class="bookbtn">See&nbsp;details</a>'+
-                                           '<form id="frmhd  item.hotelid  "><a target="_blank" class="searchbtn" href="#" onclick="findHotelDetailsSub(  item.hotelid  )">See test details</a><input type="hidden" id="hotelid" value=" item.hotelid " /></form>'+
+                                           '<span class="priceDisplay">' + item.lowrate + '</span>  <a target="_blank" href="http://www.lowestroomrates.com/avails/wa'+  item.hotelid  +'" class="bookbtn">See&nbsp;details</a>'+
+                                           '<form id="frmhd' + item.hotelid + '"><a class="searchbtn" href="#hdetails' + item.hotelid + '" onclick="findHotelDetailsSub( ' + item.hotelid + ' )">See test details</a><input type="hidden" id="hotelid" value="' + item.hotelid + '" /></form>' +
+                                        '</li></ul></td></tr>' +
+                                        '<tr><td ><ul class="htlopt"><li>' +
+                                        '<div id="hdetails' + item.hotelid + '"></div>' +
                                         '</li>'+
-
-                                        '</ul></td></tr>'
+                                        '</ul></td></tr><tr><td class="htloptborder"></td></tr>'
 
                                         );
 
@@ -263,27 +267,68 @@
 
 
             function findHotelDetailsSub(frm) {
-
+               
                 var frm = document.getElementById('frmhd' + frm);
-
+               
                 if (frm == null) return false;
-                alert(frm.hotelid.value);
+                
 
-                $.getJSON('api/hotels/' + frm.hotelid.value + '/')
+                $.getJSON('api/hoteldetails/' + frm.hotelid.value + '/')
                     .done(function (data) {
-
+                        $("#hdetails" + frm.hotelid.value).empty();
+                         
                         // On success, 'data' contains a list of location.
                         $.each(data, function (key, item) {
+                          
 
-                            // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
+                            if (key == "HotelSummary") { /*$("#hdetails" + frm.hotelid.value).append('<table><tr><td class="hf">' + item.name + '</td></tr></table>');*/
+                            } else
+                                if (key == "HotelDetails") {
+                                    $("#hdetails" + frm.hotelid.value).append('<table style="font-size:10px;font-weight:normal"><tr><td>' + htmlDecode(item.propertyDescription) + '<br/>' + htmlDecode(item.hotelPolicy) + '<br/>' + htmlDecode(item.roomInformation) + '</td></tr></table>');
+                                }
 
+                                else
+                                    if (key == "HotelImages") {
+                                        $.each(item, function (key2, item2) {
+                                            $("#hdetails" + frm.hotelid.value).append('<table>');
+                                            var totimg = item2.length;
+                                            var maxperLine = 10;
+                                            var imgcount = 0;
+                                            $.each(item2, function (key3, imgdata) {
+                                                if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('<tr>');
+                                                $("#hdetails" + frm.hotelid.value).append('<td class="hf"><img height="50" width="80" src="' + imgdata.url + '"></td>');
+                                                if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('</tr>');
+                                                ++imgcount;
+                                            })
+                                            $("#hdetails" + frm.hotelid.value).append('</table>');
+
+                                        }
+
+                                        );
+
+
+                                        // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
+
+                                    }
                         });
+                        $("#hdetails" + frm.hotelid.value).show();
+                       
 
                     })
                 .fail(function (request, status, error) {
                     alert('failed:' + error);
                 });
 
+            }
+
+            function htmlEncode(value) {
+                //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+                //then grab the encoded contents back out.  The div never exists on the page.
+                return $('<div/>').text(value).html();
+            }
+
+            function htmlDecode(value) {
+                return $('<div/>').html(value).text();
             }
 
             function findHotelDetails(hi, city) {

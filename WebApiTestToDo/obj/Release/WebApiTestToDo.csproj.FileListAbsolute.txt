@@ -34,3 +34,15 @@ C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\System.Web.Http.WebHost.xml
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Release\WebApiTestToDo.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Release\WebApiTestToDo.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Release\WebApiTestToDo.pdb
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.Security.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Web.Infrastructure.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Owin.dll
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.xml
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\Microsoft.Owin.Security.xml

@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hotel details</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-custom.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+
+
+    <style>
+        ui-state-error-text ui-state-error 
+        {
+            color:#1e90ff;
+        } 
+    </style>
+    <style type="text/css">
+        .evenTableRow {
+            background-color: #fff;
+            color: #000;
+            border-bottom: #0094ff;
+            border-bottom-width: medium;
+        }
+
+        .oddTableRow {
+            background-color: #fff;
+            color: #000;
+            border-bottom: #0094ff;
+            border-bottom-width:medium;
+        }    
+    </style>
+
+    <style type="text/css">
+        html, body {
+            font-size: 75%;
+        }
+
+        .ui-jqgrid tr.ui-row-ltr td {
+            border-right-color: transparent;
+            border-bottom-width: thin;
+            border-bottom-style: dotted;
+        }
+
+        /*.ui-jqgrid { border-width: 0px; }*/
+        .ui-jqgrid {
+            border-right-width: 0px;
+            border-left-width: 0px;
+        }
+
+        th.ui-th-column {
+            border-right-color: transparent !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>Hotel search results</h2>
+        
+    </div>
+    <!--
+    <div>
+        <h2>All Products</h2>
+        <ul id="products" />
+    </div>
+    <div>
+        <h2>Search by ID</h2>
+        <input type="text" id="prodId" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <input type="button" value="Search2" onclick="find2();" />
+        <p id="product" /><div id="images"></div>
+    </div>
+    -->
+
+    <table id="colr" border="0" class="ui-jqgrid"></table> <div id="pcolr" style="visibility:visible"></div>
+
+
+
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery-ui-custom.min.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery.layout.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/i18n/grid.locale-en.js"></script>
+
+    <script src="http://www.trirand.com/blog/jqgrid/js/ui.multiselect.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery.jqGrid.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery.tablednd.js"></script>
+    <script src="http://www.trirand.com/blog/jqgrid/js/jquery.contextmenu.js"></script>
+
+
+
+
+    <script>
+        
+        var grid = $("#colr");
+
+
+        grid.jqGrid({
+            //sortable: true,
+            url: 'http://localhost:50795/api/hotels/1',
+            // headers: 'Accept: application/json',
+
+
+
+            height:'auto',
+            crossDomain: true,
+            crossOrigin: true,
+            contentType: false,
+            dataType: 'jsonp',
+            headers: {
+                'Accept': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                //'Access-Control-Allow-Methods': 'GET',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            },
+
+            datatype: "json",
+            colNames: ['','', '', '', '', '','' ],
+            colModel: [
+                { name: 'hotelid', index: 'hotelid', sortable: false, width: 300 ,hidden:true},
+                {
+                    name: 'thumbnailurl', index: 'thumbnailurl', sortable: false, width: 80,
+                    formatter: imagerenderer,
+                    
+
+                },
+                {
+                    name: 'name', index: 'name', sortable: false, wrap:true,width: 250,
+                    edittype: 'select',
+                    formatter: urlrenderer 
+                    //,cellattr: {color:'#1e90ff'}
+                },
+                { name: 'address1', index: 'address1', sortable: false, width: 300 },
+                { name: 'city', index: 'city', sortable: false, width: 150 },
+                { name: 'lowrate', index: 'lowrate', sortable: false, width: 100, align: "right", formatter: priceFormatter },
+
+               {label: 'My Custom Column', name: 'custom', index:'custom', width: 120}
+
+
+
+
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: '#pcolr',
+            sortname: 'invdate',
+            viewrecords: true,
+            sortorder: "desc",
+            headertitles:false,
+           // caption: "Hotel search results",
+            loadComplete: function () {
+                //$("#1 td:eq(3)", grid[0]).css('ui-state-error-text ui-state-error');
+
+               // grid.jqGrid('setCell', "1", "name", "", { color: 'red' });
+               // ModifyGridDefaultStyles(grid);                
+            }
+
+
+        }); jQuery("#colr").jqGrid('navGrid', '#pcolr', {search:false, add: false, edit: false, del: false });
+        $('.ui-jqgrid-hdiv').hide();
+        function imagerenderer(cellvalue, options, rowObject) {
+            if ((cellvalue!='') &&(cellvalue!=null))
+            {
+                cellvalue = cellvalue.replace('_l.', '_t.');
+               return '<img style="margin-left: 5px;" src="' + cellvalue + '"/>'; 
+            } else return '';
+
+        }
+
+        function urlrenderer(cellvalue, options, rowObject) {
+            return '<a href="/Controller/Action/' + rowObject.hotelid + '" style="color:#1e90ff;font-size:11pt;white-space: normal !important;text-decoration:none">' + cellvalue + '</a>';
+
+        }
+
+        function priceFormatter(cellvalue, options, rowObject) {
+                return '<span style="color:#f00;font-size:12pt;font-weight:bold">' + cellvalue + '</span>';
+        }        
+
+        function ModifyGridDefaultStyles(grid) {
+            $(".ui-jqgrid-sortable").each(function () {
+                this.style.cursor = "default";
+                this.style.color = "#000";
+                this.style.fontWeight = "bold";
+            });
+            $('#' + "colr" + ' tr').removeClass("ui-widget-content");
+            $('#' + "colr" + ' tr:nth-child(even)').addClass("evenTableRow");
+            $('#' + "colr" + ' tr:nth-child(odd)').addClass("oddTableRow");
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
