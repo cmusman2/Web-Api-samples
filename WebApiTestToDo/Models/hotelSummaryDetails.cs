@@ -45,7 +45,13 @@ namespace WebApiTestToDo.Models
         public String latitude { get; set; }
 
         [XmlElement(Namespace = "")]
-        public String longitude { get; set; } 
+        public String longitude { get; set; }
+
+        [XmlElement(Namespace = "")]
+        public String proximitydistance { get; set; }
+
+        [XmlElement(Namespace = "")]
+        public String proximityunit { get; set; }
 
         [XmlElement(Namespace = "")]
         public String ratecurrencycode { get; set; }

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="scotchApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates</title>
     <meta name="description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
@@ -21,6 +21,17 @@
     <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
 
 
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+    <script src="Scripts/script.js"></script>
     <style>
         body{font-family:Arial; font-size:10pt;}
         ui-state-error-text ui-state-error 
@@ -49,6 +60,7 @@
         .shortDesc{font-size:9pt;font-weight:normal}
        .dottedtr{border-top:dotted;border-top-color:#1e90ff;border-top-width:1px;padding:5px;background-color:#fff}
        .hf{background-color:#1a1717;color:#fff;padding:10px;font-weight:bold;font-size:12pt}
+       .hf2{background-color:#1a1717;color:#fff;padding:3px;}
        .searchbtn{}
        .mainsearchdiv{opacity:.8;background-color:#fff;width:20%; height:auto; padding:10px; text-align:center; min-width:200px}
 
@@ -66,7 +78,62 @@
 
     
 </head>
-<body>
+<body ng-controller="mainController">
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+ 
+
+
+    <!--
+
+ 
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+     
+    <div id="main">
+
+        <div ng-view></div>
+    </div>
+
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <table id="mainsearch" style="width:100%;height:250px; background-size: cover; text-align:center;background-image:url(http://www.lowestroomrates.com/images/27528_351_z.jpg)">
     <tr>
@@ -87,8 +154,8 @@
 
 
                 <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
-                <a   class="searchbtn" target="_blank" href="api/hotels/114200/London">test basic</a>
-                <a class="searchbtn" target="_blank" href="api/hotels/114200/London/GB">test digest</a>
+                <a   class="searchbtn" target="_blank" href="hotels/114200/London">test basic</a>
+                <a class="searchbtn" target="_blank" href="hotels/114200/London/GB">test digest</a>
             </div>
           </div>
         </td>
@@ -157,7 +224,7 @@
 
 
 
-            var uri = 'api/hotels/';
+            var uri = 'hotels/';
 
 
 
@@ -166,66 +233,16 @@
             }
 
             function findHotel() {
-                /*
-                $.getJSON(uri + document.getElementById('locid').value)
-                    .done(function (data) {
-                        $("#gridview2").empty();
-                        $("#gridview2").append('<tr><td colspan="4" class="hf">Hotel search results</td></tr>');
-                        $("#gridview2").append('<tr><td colspan="4"><ul><li>');
-                        // On success, 'data' contains a list of products.
-                        $.each(data, function (key, item) {
-                            // Add a list item for the product.
-                            //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                            //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
-                            //for (var i = 0; i < data.length; i++)
-                            {
-                                if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
-                                    $("#gridview2").append('<ul class="loclist"><li>' +
-                                        '<img src="' + item.thumbnailurl + '"/></li>'+
-                                        '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
-                                        '<li class="priceDisplay">' + item.lowrate + '</li>'+
-                                        '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></li>');
-                                else
-                                    $("#gridview2").append('<ul><li></li>' +
-                                        '<li><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </li>' +
-                                        '<li class="priceDisplay">' + item.lowrate + '</li>'+
-                                        '<li class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></li>');
-                                $("#gridview2").append('</ul>');
-
-
-                            };
-
-                        });
-                        $("#gridview2").append('</li></ul></td></tr>');
-                    });*/
-
-
-
-
                 $.getJSON(uri + document.getElementById('locid').value)
                     .done(function (data) {
                         $("#gridview2").empty();
                         $("#gridview2").append('<tr><td class="hf">Hotel search results</td></tr>');
-                        /*
-                        $("#gridview2").append(
-                            '<ul class="htlopt">' +
-                             '<li class="htlopt" style="float:left"><img src="http://images.lowestroomrates.com/hotels/2000000/2000000/1990400/1990350/6e7716c1_l.jpg"></li>' +
-                             '<li class="htlopt" style="float:right">Located in </li>' +
-                             '<li class="htlopt" style="float:right">bbbb</li>' +
-                            '</ul>'
-
-                            );*/
+ 
 
                         // On success, 'data' contains a list of products.
                         if ((data == null) || (data == "")) return;
                         $.each(data, function (key, item) {
-                            // Add a list item for the product.
-                            //$('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                            //$('#images').append('<img src="' + item.thumbnailurl + '" title="'+item.name+'" alt="'+item.name+'" />');
-                            //for (var i = 0; i < data.length; i++)
 
-
-                            {
                                 if ((item.thumbnailurl != '') && (item.thumbnailurl != null))
                                     $("#gridview2").append(
                                         '<tr><td ><ul class="htlopt">' +
@@ -241,26 +258,6 @@
                                         '</ul></td></tr><tr><td class="htloptborder"></td></tr>'
 
                                         );
-
-
-                            };
-
-
-
-                            /*
-                            {
-                                if ((item.thumbnailurl != '')&& (item.thumbnailurl != null))
-                                    $("#gridview2").append('<tr><td width="5%"><img src="' + item.thumbnailurl + '"/></td>       <td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '" class="bookbtn">See&nbsp;details</a></td>' +
-
-                                        '<td class="bookbtntd"><form id="frmhd' + item.hotelid + '"><a target="_blank"  class="searchbtn" href="#" onclick="findHotelDetailsSub(' + item.hotelid + ')">See details</a><input type="hidden" id="hotelid" value="' + item.hotelid + '"/></form></td>' +
-                                        '</tr>');
-                                else
-                                    $("#gridview2").append('<tr><td width="5%"></td><td><table class="gv"><tr>   <td class="htlname">' + item.name + '</td></tr><tr>   <td>' + item.address1 + '</td></tr><tr>   <td>' + item.city + '</td></tr><tr>   <td>' + item.locationdescription + '</td></tr><tr>   <td class="shortDesc">' + item.shortdescription + '</td></tr></table>       </td><td class="priceDisplay">' + item.lowrate + '</td><td class="bookbtntd"><a target="_blank" href="http://www.lowestroomrates.com/avails/wa' + item.hotelid + '"  class="bookbtn">See&nbsp;details</a></td></tr>');
-                                $("#gridview2").append('<tr><td colspan="4" class="dottedtr"></td></tr>');
-
-
-                            };*/
-
                         });
                     });
             }
@@ -273,45 +270,62 @@
                 if (frm == null) return false;
                 
 
-                $.getJSON('api/hoteldetails/' + frm.hotelid.value + '/')
+                $.getJSON('hoteldetails/' + frm.hotelid.value + '/')
                     .done(function (data) {
                         $("#hdetails" + frm.hotelid.value).empty();
-                         
+                       
                         // On success, 'data' contains a list of location.
+                        $("#hdetails" + frm.hotelid.value).append('<table style="font-size:10px;font-weight:normal;" id="table' + frm.hotelid.value + '">');
+                        $("#hdetails" + frm.hotelid.value).append('<tr><td><a href="#" onclick="toggle(' + frm.hotelid.value + ')">Show</a></td></tr><tr><td>');
+
                         $.each(data, function (key, item) {
                           
-
+                            
                             if (key == "HotelSummary") { /*$("#hdetails" + frm.hotelid.value).append('<table><tr><td class="hf">' + item.name + '</td></tr></table>');*/
                             } else
                                 if (key == "HotelDetails") {
-                                    $("#hdetails" + frm.hotelid.value).append('<table style="font-size:10px;font-weight:normal"><tr><td>' + htmlDecode(item.propertyDescription) + '<br/>' + htmlDecode(item.hotelPolicy) + '<br/>' + htmlDecode(item.roomInformation) + '</td></tr></table>');
-                                }
+                                    $("#hdetails" + frm.hotelid.value).append('<table style="font-size:10px;font-weight:normal"><tr><td>' + htmlDecode(item.propertyDescription) + htmlDecode(item.hotelPolicy) + htmlDecode(item.roomInformation) + '</td></tr></table>');
+                                } else
+                                    if (key == "HotelRooms") {
+                                        $("#hdetails" + frm.hotelid.value).append('<table style="font-size:10px;font-weight:normal">');
+                                        $.each(item, function (key2, item2) {                                        
+                                            $.each(item2, function (key3, room) {
+                                                $("#hdetails" + frm.hotelid.value).append('<tr><td>' + room.description + '</td><td>' + room.descriptionLong + '</td></tr>');
 
-                                else
-                                    if (key == "HotelImages") {
-                                        $.each(item, function (key2, item2) {
-                                            $("#hdetails" + frm.hotelid.value).append('<table>');
-                                            var totimg = item2.length;
-                                            var maxperLine = 10;
-                                            var imgcount = 0;
-                                            $.each(item2, function (key3, imgdata) {
-                                                if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('<tr>');
-                                                $("#hdetails" + frm.hotelid.value).append('<td class="hf"><img height="50" width="80" src="' + imgdata.url + '"></td>');
-                                                if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('</tr>');
-                                                ++imgcount;
+
                                             })
-                                            $("#hdetails" + frm.hotelid.value).append('</table>');
+                                            
+                                        })
+                                        $("#hdetails" + frm.hotelid.value).append('</table>');
+                                    }
+                                    else
+                                        if (key == "HotelImages") {
+                                            $.each(item, function (key2, item2) {
+                                                $("#hdetails" + frm.hotelid.value).append('<table><tr><td>');
+                                                var totimg = item2.length;
+                                                var maxperLine = 10;
+                                                var imgcount = 0;
+                                                $.each(item2, function (key3, imgdata) {
+                                                    if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('<ul>');
+                                                    $("#hdetails" + frm.hotelid.value).append('<li class="hf2"><img height="50" width="80" src="' + imgdata.url + '"></li>');
+                                                    if ((imgcount % maxperLine) == 0) $("#hdetails" + frm.hotelid.value).append('</ul>');
+                                                    ++imgcount;
+                                                })
+                                                $("#hdetails" + frm.hotelid.value).append('</td></tr></table>');
+
+                                            }
+
+                                            );
+
+
+                                            // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
 
                                         }
-
-                                        );
-
-
-                                        // $("#loclist").append('<li>' + item.Name + ', ' + item.City + '</li>');
-
-                                    }
                         });
-                        $("#hdetails" + frm.hotelid.value).show();
+                        $("#hdetails" + frm.hotelid.value).append('</td></tr></table>');
+
+
+                      //  $("#hdetails" + frm.hotelid.value).show();
                        
 
                     })
@@ -327,13 +341,21 @@
                 return $('<div/>').text(value).html();
             }
 
+            function toggle(id) {
+                var visible = $('#table' + id).is(":visible");
+                if (visible)
+                     $('#table' + id).hide();
+                else
+                     $('#table' + id).show();
+            }
+
             function htmlDecode(value) {
                 return $('<div/>').html(value).text();
             }
 
             function findHotelDetails(hi, city) {
 
-                $.getJSON('api/hotels/' + hi + '/' + city)
+                $.getJSON('hotels/' + hi + '/' + city)
                     .done(function (data) {
 
                         alert('success');
@@ -353,7 +375,7 @@
 
 
             function findHotelDetails2(hi, city) {
-                $.getJSON('api/hotels/' + hi + '/' + city)
+                $.getJSON('hotels/' + hi + '/' + city)
                     .done(function (data) {
 
                         alert('success');
@@ -374,7 +396,7 @@
             function getLocation() {
 
                 if (document.getElementById('locid').value.length < 3) { $("#loclist").hide(); return };
-                $.getJSON('api/locations/' + document.getElementById('locid').value)
+                $.getJSON('locations/' + document.getElementById('locid').value)
                     .done(function (data) {
                         $("#loclist").empty();
 

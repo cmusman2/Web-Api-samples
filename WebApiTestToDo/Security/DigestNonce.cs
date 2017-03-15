@@ -42,7 +42,7 @@ namespace WebApiTestToDo.Security
         public static bool IsValid(string nonce, string nonceCount)
         {
             var count = GetFromCache(nonce);
-
+            if (count == null) return false;
             if (!count.HasValue) 
                 return false;
             

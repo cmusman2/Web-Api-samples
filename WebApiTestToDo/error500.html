@@ -86,8 +86,8 @@
 
 
                 <input type="button" value="Search" class="searchbtn" onclick="findHotel()" />
-                <a   class="searchbtn" target="_blank" href="api/hotels/114200/London">test basic</a>
-                <a class="searchbtn" target="_blank" href="api/hotels/114200/London/GB">test digest</a>
+                <a   class="searchbtn" target="_blank" href="hotels/114200/London">test basic</a>
+                <a class="searchbtn" target="_blank" href="hotels/114200/London/GB">test digest</a>
             </div>
           </div>
         </td>
@@ -156,7 +156,7 @@
 
 
 
-            var uri = 'api/hotels/';
+            var uri = 'hotels/';
 
 
 
@@ -270,7 +270,7 @@
                 if (frm == null) return false;
                 alert(frm.hotelid.value);
 
-                $.getJSON('api/hotels/' + frm.hotelid.value + '/')
+                $.getJSON('hotels/' + frm.hotelid.value + '/')
                     .done(function (data) {
 
                         // On success, 'data' contains a list of location.
@@ -289,7 +289,7 @@
 
             function findHotelDetails(hi, city) {
 
-                $.getJSON('api/hotels/' + hi + '/' + city)
+                $.getJSON('hotels/' + hi + '/' + city)
                     .done(function (data) {
 
                         alert('success');
@@ -309,7 +309,7 @@
 
 
             function findHotelDetails2(hi, city) {
-                $.getJSON('api/hotels/' + hi + '/' + city)
+                $.getJSON('hotels/' + hi + '/' + city)
                     .done(function (data) {
 
                         alert('success');
@@ -330,7 +330,7 @@
             function getLocation() {
 
                 if (document.getElementById('locid').value.length < 3) { $("#loclist").hide(); return };
-                $.getJSON('api/locations/' + document.getElementById('locid').value)
+                $.getJSON('locations/' + document.getElementById('locid').value)
                     .done(function (data) {
                         $("#loclist").empty();
 

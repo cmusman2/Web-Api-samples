@@ -1,6 +1,6 @@
 ﻿(function () { // Angular encourages module pattern, good!
     var app = angular.module('myApp', []),
-        uri = 'api/complaints',
+        uri = 'complaints',
         errorMessage = function (data, status) {
             return 'Error: ' + status +
                 (data.Message !== undefined ? (' ' + data.Message) : '');

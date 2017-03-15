@@ -130,6 +130,53 @@ namespace WebApiTestToDo.Models
             }
         }
 
+        public async static Task<List<hotelsummary>> GetData(String lat, String lang, int max, DateTime checkin, int nights)
+        {
+
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+
+                try
+                {
+
+                    String x = await GetData2(lat,lang,max,checkin,nights);
+
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    StringReader textReader = new StringReader(x);
+                    XmlReader xml = XmlReader.Create(textReader, settings);
+
+
+
+                    XmlSerializer xser = new XmlSerializer(typeof(HotelList), "http://v3.hotel.wsapi.ean.com/");
+                    HotelList hl = (HotelList)xser.Deserialize(xml);
+                    Console.WriteLine("Sucess");
+
+
+                    int counts = 0;
+
+                    List<hotelsummary> hls = new List<hotelsummary>();
+                    if (hl.Hotels != null)
+                        foreach (var h in hl.Hotels.Hotels)
+                        {
+                            hls.Add(h);
+                            counts++;
+                            Console.WriteLine(h.name);
+                            if (counts > 200) break;
+                        }
+
+                    return hls;
+                }
+                catch (Exception e)
+                {
+                    Logger.log(e.Message);
+                }
+
+                return null;
+            }
+        }
+
+
         public static async Task<String> GetData2(String city, DateTime sdate, DateTime edate)
         {
 
@@ -156,6 +203,7 @@ namespace WebApiTestToDo.Models
                   new KeyValuePair<string, string>("CityAjaxH", city),
                   new KeyValuePair<string, string>("SDATEH", sd),
                   new KeyValuePair<string, string>("EDATEH", ed),
+
                  // new KeyValuePair<string, string>("country", "gb"),
                   new KeyValuePair<string, string>("maxnum", "15"),
                  
@@ -179,7 +227,67 @@ namespace WebApiTestToDo.Models
             }
 
         }
+        public static async Task<String> GetData2(String lat, String lang, int max, DateTime checkin, int nights)
+        {
 
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+
+                try
+                {
+                    client.BaseAddress = new Uri("http://www.lowestroomrates.com");
+
+                    string resultContent = await new ClientAuthenticateRemote().authenticate();
+
+                    if (DateTime.Now > checkin) checkin = DateTime.Now.AddDays(2);
+
+                    String sd = checkin.ToString("dd/MM/yy");
+                    if (nights == 0 || nights > 28) nights = 1;
+                    String ed = checkin.AddDays(nights).ToString("dd/MM/yy");
+
+                    if (max == 0 || max > 50) max = 30;
+
+
+                    var query = new System.Net.Http.FormUrlEncodedContent(new[]
+                 {
+                  new KeyValuePair<string, string>("xuid", resultContent),
+                  new KeyValuePair<string, string>("yzid0x", resultContent),
+                  new KeyValuePair<string, string>("latitude", lat),
+                  new KeyValuePair<string, string>("longitude", lang),
+                  new KeyValuePair<string, string>("SDATEH", sd),
+                  new KeyValuePair<string, string>("EDATEH", ed),
+
+                  new KeyValuePair<string, string>("user", "nozledry"),
+                  new KeyValuePair<string, string>("pin", "n0zl3dry"),
+                  
+
+                  //new KeyValuePair<string, string>("istest", "1"),
+                  new KeyValuePair<string, string>("sortorder", "PROXIMITY"),
+                  new KeyValuePair<string, string>("currency", "GBP"),
+                 // new KeyValuePair<string, string>("country", "gb"),
+                  new KeyValuePair<string, string>("maxresults", max.ToString()),
+
+              });
+
+                    var result = client.PostAsync("/src/htllist.php", query).Result;
+                    resultContent = result.Content.ReadAsStringAsync().Result;
+                    return resultContent;
+                }
+                catch (Exception exp)
+                {
+                    Logger.log("Error:" + exp.Message);
+                }
+
+                finally
+                {
+
+                }
+
+                return null;
+            }
+
+        }
     }
 
 

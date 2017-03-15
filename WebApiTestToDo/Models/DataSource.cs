@@ -39,7 +39,14 @@ namespace WebApiTestToDo.Models
             htls= await HotelSearch.GetData(city, sdate, edate);
 
              return  htls;
-        }        
+        }
+
+        public async static Task<List<hotelsummary>> GetHotels(String lat,String lang, int max, DateTime checkin, int nights)
+        {
+                htls = await HotelSearch.GetData(lat,lang,max, checkin, nights);
+
+            return htls;
+        }
 
         public static List<Location> GetLocation(string loc)
         {
