@@ -19,12 +19,18 @@ scotchApp.config(function ($routeProvider) {
             templateUrl: 'Views/about.html',
             controller: 'aboutController'
         })
-
+                // route for the about page
+        .when('/hotels', {
+            templateUrl: 'Views/xhotels.html',
+            controller: 'xhotelsController'
+        })
         // route for the contact page
         .when('/contact', {
             templateUrl: 'Views/contact.html',
             controller: 'contactController'
         });
+
+
 });
 
 // create the controller and inject Angular's $scope
@@ -39,4 +45,8 @@ scotchApp.controller('aboutController', function ($scope) {
 
 scotchApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
+});
+
+scotchApp.controller('xhotelsController', function ($scope) { 
+    $scope.message = 'Hotel us! JK. This is just a demo.';
 });

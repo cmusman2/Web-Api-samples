@@ -77,6 +77,6 @@ C:\net\WebApiTestToDoRep\BookaHotel\bin\Microsoft.Owin.Security.OAuth.xml
 C:\net\WebApiTestToDoRep\BookaHotel\bin\Microsoft.Owin.Security.Google.xml
 C:\net\WebApiTestToDoRep\BookaHotel\bin\Microsoft.Owin.Security.Twitter.xml
 C:\net\WebApiTestToDoRep\BookaHotel\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\net\WebApiTestToDoRep\BookaHotel\obj\Debug\BookaHotel.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDoRep\BookaHotel\obj\Debug\BookaHotel.dll
 C:\net\WebApiTestToDoRep\BookaHotel\obj\Debug\BookaHotel.pdb
-C:\net\WebApiTestToDoRep\BookaHotel\obj\Debug\BookaHotel.csprojResolveAssemblyReference.cache

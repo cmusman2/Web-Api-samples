@@ -5,11 +5,15 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Filters;
+using System.Web.Http.Results;
+using WebApiTestToDo.ExceptionHandling;
 using WebApiTestToDo.Models;
 using WebApiTestToDo.Security;
 
 namespace WebApiTestToDo.Controllers
 {
+   // [HotelControllerExceptionFilterAttribute]
     public class HotelsController : ApiController
     {
         
@@ -19,9 +23,15 @@ namespace WebApiTestToDo.Controllers
             return hotels;
         }
 
+        
         [Route("hotels/{city}")]
         public async Task<IHttpActionResult> GetHotel([FromUri(Name = "city")]string city)
         {
+
+            int[] tt = new int[2];
+           
+                int j = tt[2];
+          
 
             var hotels= DataSource.hotels; 
           //  if ( hotels == null  ||  hotels.Count == 0 )

@@ -14,5 +14,12 @@ namespace WebApiTestToDo
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            int i = 20;
+            int j = 20 * i;
+
+        }
     }
 }
