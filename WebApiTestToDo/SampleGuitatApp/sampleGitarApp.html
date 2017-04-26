@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+
+
+     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
+     
+
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <!--
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+        -->
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+
+    
+<script>
+    var GuitarApp = angular.module('GuitarApp', ['ngRoute', 'GuitarControllers']);
+
+    GuitarApp.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.
+        when('/list', {
+            templateUrl: 'partials/list.html',
+            controller: 'ListController'
+        }).
+        when('/details/:guitarID', {
+            templateUrl: 'partials/details.html',
+            controller: 'DetailsController'
+        }).
+        otherwise({
+            redirectTo: '/list'
+        });
+    }]);
+
+
+
+    var GuitarControllers = angular.module("GuitarControllers", []);
+
+    GuitarControllers.controller("ListController", ['$scope', '$http',
+        function ($scope, $http) {
+            $http.get('js/data.json').success(function (data) {
+                $scope.guitarVariable = data;
+                $scope.orderGuitar = 'price';
+            });
+        }]
+    );
+
+    GuitarControllers.controller("DetailsController", ['$scope', '$http', '$routeParams',
+         function ($scope, $http, $routeParams) {
+             $http.get('js/data.json').success(function (data) {
+                 $scope.guitarVariable = data;
+                 $scope.whichGuitar = $routeParams.guitarID;
+             });
+         }]
+    );
+</script>
+    
+
+</head>
+ 
+
+<body>
+   <div>
+
+       <ul>
+           <li class="itemHolder" ng-repeat="item in guitarVariable | filter:query1 | orderBy:orderGuitar:direction">
+               <a href="#/details/{{guitarVariable.indexOf(item)}}">
+                   <img ng-src="img/{{item.image}}.jpg">
+                   <div>
+                       <h3> {{item.name }}</h3>
+                       <p class="rightDate">Price Revised on: {{item.dateAdded | date:'MM/yy'}}</p>
+                       <p class="rightPrice">${{item.price | number:0 }}</p>
+                       <p> {{item.description}}</p>
+                   </div>
+               </a>
+           </li>
+       </ul>
+   </div>
+</body>
+</html>

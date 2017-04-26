@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="GuitarApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Application</title>
+	<link rel="stylesheet" type="text/css" href="styles.css"></link>
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<script src="lib/Angular/angular.min.js" type="text/javascript" ></script>
+	<script src="js/controllers.js" type="text/javascript" ></script>
+</head>
+<body>
+	
+<div class="main" ng-controller="GuitarFunction">
+	 <div class="search">
+		<h1>Offshore Guitar Store</h1>
+		<label>Search Guitar</lavel>
+		<input type="text" ng-model="query1" >
+	
+		<label>Sort by:
+			<select ng-model="orderGuitar">
+				<option value="name" selected>name</option>
+				<option value="reknown">Reknown</option>
+			</select>
+		</label>
+		<br>
+		<label>
+			<input type="radio" ng-model="direction" name="direction" checked>
+			Ascending
+		</label>
+		<label>	
+			<input type="radio" ng-model="direction" name="direction" value="reverse" >
+			Descending
+		</label>
+		<p>&nbsp;	There are <span ng-bind="guitarVariable.length"></span> items in data.json file</p>
+	</div>
+	
+	<ul> 
+		<li class="itemHolder" ng-repeat="item in guitarVariable | orderBy:'-price' | filter:query1 | orderBy:orderGuitar:direction">
+		<img ng-src="img/{{item.image}}.jpg">
+			<div>
+				<h3> {{item.name | uppercase }}</h3><p class="rightDate">Price Revised on: {{item.dateAdded | date:'dd/MM/yy'}}</p><p class="rightPrice">${{item.price | number:1 }}</p>
+				<p> {{item.description}}</p>
+
+			</div>
+		</li>
+	</ul>
+
+</div>
+
+
+<a class="developer" href="http://blog.hfarazm.com/category/angular-js">&laquo; Goto developer's blog </a>
+</body>
+</html>

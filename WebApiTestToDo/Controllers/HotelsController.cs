@@ -27,10 +27,10 @@ namespace WebApiTestToDo.Controllers
         [Route("hotels/{city}")]
         public async Task<IHttpActionResult> GetHotel([FromUri(Name = "city")]string city)
         {
-
+            if (String.IsNullOrEmpty(city) ||(city=="undefined")) city = "noloc";
             int[] tt = new int[2];
            
-                int j = tt[2];
+              //  int j = tt[2]; //test exceptions
           
 
             var hotels= DataSource.hotels; 
@@ -108,9 +108,12 @@ namespace WebApiTestToDo.Controllers
         [Route("hoteldetails/{hotelid}")]
         public async Task<IHttpActionResult> GetHotelDetails([FromUri(Name = "hotelid")]int hid) 
         {
-
-           var htl= await DataSource.GetHotelDetails(hid);
-            return Ok(htl);
+            if (hid > 0)
+            {
+                var htl = await DataSource.GetHotelDetails(hid);
+                return Ok(htl);
+            }
+            else return null;
 
         }
 

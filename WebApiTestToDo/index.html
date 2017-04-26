@@ -1,24 +1,13 @@
 ﻿<!DOCTYPE html>
 <html ng-app="scotchApp" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates</title>
-    <meta name="description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
-    <meta name="keywords" content="BnB,Bed &amp; Breakfast, All Inclusive Deals, Super 8, Vacational Rentals, City Breaks, Wingate Inn,Hotel Bookinngs,Hotel Rates" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <link rel="canonical" href="http://www.lowestroomrates.com/index.html" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index,follow" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Book Cheap Hotels, Bed and Breakfast and Resorts - Lowest Room Rates" />
-    <meta property="og:description" content="Book best hotels at lowest rates. Save on early booking discounsts on our top hotels. Check great Offers and special hotel rates and Save upto 60%. Secure Booking with Instant Confirmation." />
-    <meta property="og:url" content="http://www.lowestroomrates.com/" />
-    <meta property="og:site_name" content="lowestroomrates.com" />
-    <meta http-equiv="content-language" content="en" />
-    <link rel="author" href="https://plus.google.com/b/116350002083718006672/+Lowestroomrates" />
-    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/redmond/jquery-ui-custom.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.jqgrid.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+   
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="Scripts/example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- SCROLLS -->
@@ -77,6 +66,9 @@
        .htloptborder{border-bottom-color:#1e90ff;border-bottom-width:unset;border-bottom-style:dotted}
         .pop {
         }
+
+
+
     </style>
     
 
@@ -85,12 +77,6 @@
 <body ng-controller="mainController">
     <!-- angular templating -->
     <!-- this is where content will be injected -->
- 
-
-
-   
-
- 
     <header>
         <nav class="navbar navbar-default">
             <div class="container">
@@ -108,7 +94,27 @@
         </nav>
     </header>
 
-     
+    <div class="modalImage">
+        <div class="modal-header">
+            {{selectedImg.header}}
+            <button ng-click="$dismiss()" class="close pull-right"
+                    aria-hidden="true">
+                &times;
+            </button>
+            <div class="clearfix"></div>
+        </div>
+        <div class="modal-body">
+            <div class="image-wrapper">
+                <a ng-href="{{ImageSrc}}" target="_blank">
+                    <img ng-src={{ImageSrc}}>
+                </a>
+            </div>
+            <div class="text-muted image-description">
+                {{ImageDescription}}
+            </div>
+        </div>
+    </div>
+
     <div id="main">
 
         <div ng-view></div>
@@ -141,52 +147,21 @@
     </tr>
     
 </table>
-   <!--
-     <table class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#fff">
-        <tr>
-            <td colspan="4" valign="top">
-                <ul class="htlopt">
-                <li style="width:250px"><img width="250px" src="http://images.lowestroomrates.com/hotels/2000000/2000000/1990400/1990350/6e7716c1_l.jpg" /></li>
-                    <li style="float:left;width:50%"><table width="100%"><tr>   <td class="htlname">Bin Majid Beach Resort - All Inclusive</td></tr><tr>   <td>Jazirah Al Hamra Road</td></tr><tr>   <td>Ras Al Khaimah</td></tr><tr>   <td>Near Khuzam Family Park</td></tr><tr>   <td class="shortDesc">Located in Ras Al Khaimah, Bin Majid Beach Resort - All Inclusive is close to Khuzam Family Park and RAK Pearls Museum. This 4-star hotel is within close proximity of Ras Al-Khaimah Water Ski Club and Jungle Bungle.</td></tr></table>       </li>
-                    
-                     
-                     <li>
-                            <span class="priceDisplay">117.43</span>  <a target="_blank" href="http://www.lowestroomrates.com/avails/wa  item.hotelid  " class="bookbtn">See&nbsp;details</a>
-                            <form id="frmhd  item.hotelid  "><a target="_blank" class="searchbtn" href="#" onclick="findHotelDetailsSub(  item.hotelid  )">See test details</a><input type="hidden" id="hotelid" value=" item.hotelid " /></form>
-                 </li>
-                    
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4" valign="top">
-                <ul class="htlopt">
-                    <li style="width:250px"><img width="250px" src="http://images.lowestroomrates.com/hotels/2000000/2000000/1990400/1990350/6e7716c1_l.jpg" /></li>
-                    <li style="float:left;width:50%"><table width="100%"><tr>   <td class="htlname">Bin Majid Beach Resort - All Inclusive</td></tr><tr>   <td>Jazirah Al Hamra Road</td></tr><tr>   <td>Ras Al Khaimah</td></tr><tr>   <td>Near Khuzam Family Park</td></tr><tr>   <td class="shortDesc">Located in Ras Al Khaimah, Bin Majid Beach Resort - All Inclusive is close to Khuzam Family Park and RAK Pearls Museum. This 4-star hotel is within close proximity of Ras Al-Khaimah Water Ski Club and Jungle Bungle.</td></tr></table>       </li>
-
-
-                    <li>
-                        <span class="priceDisplay">117.43</span>  <a target="_blank" href="http://www.lowestroomrates.com/avails/wa  item.hotelid  " class="bookbtn">See&nbsp;details</a>
-                        <form id="frmhd  item.hotelid  "><a target="_blank" class="searchbtn" href="#" onclick="findHotelDetailsSub(  item.hotelid  )">See test details</a><input type="hidden" id="hotelid" value=" item.hotelid " /></form>
-                    </li>
-
-                </ul>
-            </td>
-        </tr>
-        </table> -->
-        <table id="gridview2" class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#fff"></table>
+   
+        <table id="gridview22" class="display" width="100%" align="center" cellspacing="0" style="font-weight:bold;color:#272525;background-color:#fff">
+            <tr><td>
+            <div id="gridview2"/>
+                </td></tr>
+        </table>
     
     <a href="#" id="pop1" class="pop">
         <img id="imageresource" src="http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_t.jpg" alt="http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_y.jpg">
         Click to Enlarge
     </a>
-    <a href="#" id="popimageresource1" onclick="doPop('#popimageresource1', '#imageresource1')">
-        <img id="imageresource1" src="http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_t.jpg" alt="http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_y.jpg">
-        Click to Enlarge
-    </a>
+
     
     <!-- Creates the bootstrap modal where the image will appear -->
-    <div class="modal fade" style="position:absolute;left:10px" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" style="position:relative;left:10px" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -194,7 +169,7 @@
                     <h4 class="modal-title" id="myModalLabel">Image preview</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="" id="imagepreview" style="position:center">
+                    <img src="" style="width:100%;position:center" id="imagepreview">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -202,8 +177,26 @@
             </div>
         </div>
     </div>
+    
 
 
+    <div class="modal fade" style="position:relative;left:10px" id="imagemodal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="" style="width:100%;position:center" id="imagepreview1">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
         <table id="colr" border="0" class="ui-jqgrid"></table>
         <div id="pcolr" style="visibility:visible"></div>
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
@@ -229,23 +222,18 @@
                 });
             })(jQuery);
             
-            $(".pop").on("click", function () {
+           /* $(".pop").on("click", function () {
                
 
                 $('#imagepreview').attr('src', $('#imageresource').attr('alt')); // here asign the image to the modal when the user click the enlarge link
-               //$('#imagepreview').attr('src', 'http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_y.jpg'); // here asign the image to the modal when the user click the enlarge link                
                 $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
                 $('#imagemodal').center();
-            });
+            });*/
 
-            function doPop(id1,id2)
+            function doPop(id)
             {
-                alert(id1); alert(id2);
-                $(id1).on("click", function () {
-
-                    
-                    $('#imagepreview').attr('src', $(id2).attr('alt')); // here asign the image to the modal when the user click the enlarge link
-                    //$('#imagepreview').attr('src', 'http://images.lowestroomrates.com/hotels/1000000/800000/795900/795873/8a2b2018_y.jpg'); // here asign the image to the modal when the user click the enlarge link                
+                $(id).on("click", function () {
+                    $('#imagepreview').attr('src', $(id).attr('alt')); // here asign the image to the modal when the user click the enlarge link
                     $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
                     $('#imagemodal').center();
                 });
@@ -278,12 +266,15 @@
             }
 
             function findHotel() {
+                
                 $.getJSON(uri + document.getElementById('locid').value)
                     .done(function (data) {
+                      
                         $("#gridview2").empty();
+                        $("#gridview2").append('<table>');
                         $("#gridview2").append('<tr><td class="hf">Hotel search results</td></tr>');
  
-
+                       
                         // On success, 'data' contains a list of products.
                         if ((data == null) || (data == "")) return;
                         $.each(data, function (key, item) {
@@ -318,6 +309,7 @@
 
                                         );
                         });
+                        $("#gridview2").append('</table>');
                     });
             }
 
@@ -366,7 +358,7 @@
                                                 var imgcount = 0;
                                                 $.each(item2, function (key3, imgdata) {
                                                     if ((imgcount % maxperLine) == 0) $("#idetails" + frm.hotelid.value).append('<ul>');
-                                                    $("#idetails" + frm.hotelid.value).append('<li class="hf2"><a href="#" id="pop' + frm.hotelid.value + '"  onclick="doPop(&apos;#pop' + frm.hotelid.value + '&apos;, &apos;#im' + imgdata.url + '&apos;)"><img id="im' + imgdata.url + '" height="50" width="80" src="' + imgdata.url + '" alt="' + imgdata.url + '"></a></li>');
+                                                    $("#idetails" + frm.hotelid.value).append('<li class="hf2"><a href="#'+imgdata.imgid+'" id="pop' + frm.hotelid.value + '"  onclick="doPop(&apos;#im' + imgdata.imgid + '&apos;)"><img id="im' + imgdata.imgid + '" height="50" width="80" src="' + imgdata.url + '" alt="' + imgdata.url + '"></a></li>');
                                                     if ((imgcount % maxperLine) == 0) $("#idetails" + frm.hotelid.value).append('</ul>');
                                                     ++imgcount;
                                                 })

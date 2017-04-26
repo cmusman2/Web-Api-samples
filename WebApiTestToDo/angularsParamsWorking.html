@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+
+
+     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     
+     
+
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <!--
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+        -->
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+
+    
+<script>
+    var app = angular.module('app', ['ngRoute']);
+
+    app.config(function ($routeProvider) {
+        $routeProvider
+
+            // route for the home page
+            .when('/', {
+                templateUrl: 'Views/home.html',
+                controller: 'mainController'
+            })
+
+            // route for the about page
+            .when('/about', {
+                templateUrl: 'Views/about.html',
+                controller: 'aboutController'
+            })
+                    // route for the about page
+            .when('/hotels', {
+                templateUrl: 'Views/hotels.html',
+                controller: 'xhotelsController'
+            })
+            // route for the contact page
+            .when('/contact', {
+                templateUrl: 'Views/contact.html',
+                controller: 'contactController'
+            })
+          .when('/hotelsearch', {
+            templateUrl: 'Views/hotelSearchResult.html',
+            controller: 'xhotelsController'
+        });
+
+        
+    });
+
+        
+    app.controller("xhotelsController", function ($scope) {
+            var vm = this;
+
+            vm.myFunc = function (city, sdate, nights) {
+                //console.log("This alert is in the main controller, and the value " + p1 + ", I got from the directive");
+                
+                alert(p1);
+            }
+
+            vm.myFunc1 = function (city,sdate,nights) {
+                //console.log("This alert is in the main controller, and the value " + p1 + ", I got from the directive");
+                $scope.message = "Searching for " +city;
+                console.log("This alert is in the controller, and the value is " + city);
+            }
+
+            vm.doStatus = function (searchTerm) {
+                console.log("This alert is in the controller, and the value is " + searchTerm);
+                $scope.message = searchTerm;
+            }
+           
+
+            vm.getData = function (searchTerm) {
+                $scope.data = getMovieSearchJSON();
+            }
+
+    });
+
+    app.controller("hotelSearchController", function ($scope) {
+        var vm = this;     
+
+        vm.getData = function (searchTerm) {
+            $scope.data = getMovieSearchJSON();
+        }
+
+    });
+    
+    function getMovieSearchJSON() {
+        return {
+            "Title": "Bri Squared",
+            "Year": "2011",
+            "Rated": "N/A",
+            "Released": "N/A",
+            "Runtime": "N/A",
+            "Genre": "Comedy",
+            "Director": "Joy Gohring",
+            "Writer": "Briana Lane",
+            "Actors": "Brianne Davis, Briana Lane, Jorge Garcia, Gabriel Tigerman",
+            "Plot": "N/A",
+            "Language": "English",
+            "Country": "USA",
+            "Awards": "N/A",
+            "Poster": "http://www.lowestroomrates.com/images/527482_118_y.jpg",
+            "Metascore": "N/A",
+            "imdbRating": "8.2",
+            "imdbVotes": "5",
+            "imdbID": "tt1937109",
+            "Type": "movie",
+            "Response": "True"
+        }
+    }
+/*
+    var app1 = angular.module('App1', []);
+
+    function ctrl($scope) {
+        $scope.itemList = [];
+        $scope.blisterPackTemplates = [{ id: 1, name: "a" }, { id: 2, name: "b" }, { id: 3, name: "c" }]
+
+        $scope.changedValue = function (item) {
+            $scope.itemList.push(item.name);
+        }
+
+    }
+    */
+</script>
+    
+
+</head>
+ 
+
+<body>
+    <!--
+    <div ng-app="App1">
+        <div ng-controller="ctrl">
+            <select ng-model="blisterPackTemplateSelected" ng-change="changedValue(blisterPackTemplateSelected)"
+                    data-ng-options="blisterPackTemplate as blisterPackTemplate.name for blisterPackTemplate in blisterPackTemplates">
+                <option value="">Select Account</option>
+            </select>
+            {{itemList}}
+        </div>
+    </div>  
+    -->
+
+    <div ng-app="app" ng-controller="xhotelsController as ctrl">
+        <input placeholder="Search" type="text" ng-change="ctrl.doStatus(searchTerm)" id="CityAjaxH" name="CityAjaxH" ng-model="searchTerm" ng-model-options="{debounce: 1000}">
+        <br />
+        from Controller : {{message}}<br />
+        from Model: {{searchTerm}} <br />
+        <button ng-click="ctrl.myFunc1(searchTerm,'26/04/17','1')" title="test me" style="height:30px;">Test - {{searchTerm}}</button>
+
+        <button ng-click="ctrl.getData(searchTerm)" title="test me" style="height:30px;">Run - {{searchTerm}}</button>
+
+
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                        <li><a href="#hotels"><i class="fa fa-comment"></i> Hotels</a></li>
+                        <li><a href="#hotelsearch"><i class="fa fa-comment"></i> Hotel Search</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+
+        <div id="main">
+
+            <div ng-view></div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -30,5 +30,18 @@ namespace WebApiTestToDo.Models
         [XmlElement(Namespace = "")]
         public string caption { get; set; }
 
+        
+        public string imgid { get { if (!String.IsNullOrEmpty(thumbnailUrl)) {
+
+                    string s = thumbnailUrl;
+                    s=s.Replace(":", "");
+                    s = s.Replace(".", "");
+                    s = s.Replace("/", "");
+                    s = s.Replace("-", "");
+                    return s;
+                }
+                else return ""; } }
+
+
     }
 }
