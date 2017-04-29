@@ -1,0 +1,15 @@
+﻿<div class="details" ng-model="guitarVariable">
+    <h2>{{guitarVariable.HotelSummary.name}}</h2>
+
+    <img class="magnifyImg" ng-src="{{guitarVariable.HotelImages.Images[0].thumbnailUrl}}">
+    <div>
+        <p class="rightDate magnifyDate">{{guitarVariable[whichGuitar].dateAdded | date:'MM/yy'}}</p>
+        <p class="rightPrice magnifyPrice">${{guitarVariable.HotelSummary.lowRate}}</p>
+        <p> {{guitarVariable[whichGuitar].description}}</p>
+        <p class="longDescription">{{guitarVariable.HotelSummary.address1}}</p>
+        <p class="longDescription">{{guitarVariable.HotelSummary.locationDescription}}</p>
+        <p class="longDescription">{{guitarVariable.HotelSummary.city}}</p>
+        <br><hr><br>
+        <a href="index.html" class="link">« Go back to Search</a>
+    </div>
+</div>

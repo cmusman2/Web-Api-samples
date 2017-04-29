@@ -22,6 +22,34 @@ namespace WebApiTestToDo.Models
             return h;
         }
 
+        public async static Task<HotelDescription> GetDummyHotelDetails(int hid)
+        {
+            HotelDescription h = new HotelDescription();
+            h.HotelDetails = new HotelDetailsDescription();
+            h.HotelDetails.locationDescription = "Near Khuzam Family Park";
+            
+            h.HotelImages = new HotelImages();
+            h.HotelImages.Images = new List<HotelImage>();
+            h.HotelImages.Images.Add(new HotelImage { thumbnailUrl = "http://images.lowestroomrates.com/hotels/2000000/2000000/1990400/1990350/6e7716c1_l.jpg" ,url= "/hotels/2000000/2000000/1990400/1990350/6e7716c1_l.jpg" });
+
+
+            h.HotelRooms = new HotelRooms();
+            h.HotelRooms.HotelRoomDetails = new List<HotelRoomDetails>();
+            h.HotelRooms.HotelRoomDetails.Add(new HotelRoomDetails { description = "King room", roomCode = "1A" });
+
+
+            h.HotelSummary = new hotelSummaryDetails();
+            h.HotelSummary.name = "Bin Majid Beach Resort - All Inclusive";
+            h.HotelSummary.address1 = "Jazirah Al Hamra Road";
+            h.HotelSummary.lowRate = "117.43";
+            h.HotelSummary.city = "Ras Al Khaimah";
+            h.PropertyAmenities = new PropertyAmenities();
+
+            return await Task.FromResult(h);
+        }
+
+        
+
 
         public async static Task<List<hotelsummary>> GetHotels(String city, DateTime sdate, DateTime edate)
         {

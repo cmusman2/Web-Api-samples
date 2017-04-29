@@ -1,0 +1,36 @@
+<div>
+    <div class="search">
+        <h1>Search hotels</h1>
+        <label>
+            Search Guitar</lavel>
+            <input type="text" ng-model="query1">
+
+            <label>
+                Sort by:
+                <select ng-model="orderGuitar">
+                    <option value="name" selected>Name</option>
+                    <option value="price">Price</option>
+                    <option value="address1">address</option>
+                </select>
+            </label>
+            <br>
+             
+            <p>&nbsp;	 {{guitarVariable.length}} hotels found</p>
+    </div>
+
+    <ul>
+        <li class="itemHolder" ng-repeat="hotel in guitarVariable | filter:query1 | orderBy:orderGuitar:address1">
+            <a href="#/details/{{hotel.hotelid}}/{{hotel.name}}">
+                <h3> {{hotel.name}}</h3>
+                <img ng-src="{{hotel.thumbnailurl}}">
+                <div>
+                    
+                    <p class="rightDate">{{hotel.address1}}</p>
+                    <p class="rightPrice">{{hotel.lowrate}}</p>
+                    <p>{{guitarVariable.HotelDetails.propertyDescription}}</p>
+                    <p>Book now</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

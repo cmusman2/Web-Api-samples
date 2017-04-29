@@ -117,6 +117,19 @@ namespace WebApiTestToDo.Controllers
 
         }
 
+
+        [Route("hoteldetailsDummy/{hotelid}")]
+        public async Task<IHttpActionResult> GetDummyHotelDetails([FromUri(Name = "hotelid")]int hid)
+        {
+            if (hid > 0)
+            {
+                var htl = await DataSource.GetDummyHotelDetails(hid);
+                return Ok(htl);
+            }
+            else return null;
+
+        }
+
         // [AuthenticateHotelUsers]
         [IdentityBasicAuthentication]
         [Authorize]
