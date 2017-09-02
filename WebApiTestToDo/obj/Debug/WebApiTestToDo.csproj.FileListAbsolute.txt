@@ -16,7 +16,6 @@ C:\net\WebApiTestToDo\WebApiTestToDo\bin\System.Web.Http.WebHost.xml
 C:\net\WebApiTestToDo\WebApiTestToDo\obj\Debug\WebApiTestToDo.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDo\WebApiTestToDo\obj\Debug\WebApiTestToDo.dll
 C:\net\WebApiTestToDo\WebApiTestToDo\obj\Debug\WebApiTestToDo.pdb
-C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\WebApiTestToDo.dll.config
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\WebApiTestToDo.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\WebApiTestToDo.pdb
 C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\EntityFramework.dll
@@ -55,3 +54,4 @@ C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\System.Web.Http.WebHost.xml
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.csprojResolveAssemblyReference.cache
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.dll
 C:\net\WebApiTestToDoRep\WebApiTestToDo\obj\Debug\WebApiTestToDo.pdb
+C:\net\WebApiTestToDoRep\WebApiTestToDo\bin\WebApiTestToDo.dll.config

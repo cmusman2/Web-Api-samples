@@ -130,6 +130,15 @@ namespace WebApiTestToDo.Controllers
 
         }
 
+
+        [Route("autoComplete/{loc}")]
+        public async Task<IHttpActionResult> GetLocation([FromUri(Name = "loc")]string loc)
+        {
+            var l=    await  DataSource.GetLocation(loc);
+            return Ok(l);
+
+        }
+
         // [AuthenticateHotelUsers]
         [IdentityBasicAuthentication]
         [Authorize]

@@ -1,7 +1,32 @@
-﻿<!-- home.html -->
+﻿<!-- contact.html -->
 <div class="jumbotron text-center">
-    <h1>Hotels Page</h1>
+	<h2>Hotels</h2>
 
-    <p>{{ message }}</p>
-   
-</div> 
+
+	<table ng-controller="ItemListController as itemListCtrl">
+
+		<div ng-repeat="hotel in itemListCtrl.items.data" style="border:dotted;border-width:thin;border-color:#1e90ff">
+
+
+			<div><h3><a target="_blank" href="http://lowestroomrates.com/avails/ww{{ hotel.hotelid }}">{{hotel.name}}</a> <img src="{{hotel.tripadvisorratingurl}}" /></h3></div>
+			<div><img src="{{ hotel.thumbnailurl }}" /></div>
+			<div><h3><a target="_blank" href="/hotels/details/{{ hotel.hotelid }}">See details</a></h3></div>
+			<div>
+				{{ hotel.address1 }},
+				{{ hotel.city }}<br />
+				{{ hotel.locationdescription }}
+
+				<br />{{ hotel.postalcode }},
+				{{ hotel.countrycode }}
+				<br />
+				<span style="color:#f00;font-size:large">{{ hotel.lowrate }}</span>
+				<br />
+
+
+				<a href="#" ng-click="hotelDetails(hotel.hotelid)">
+					See details {{hotel.hotelid}}
+				</a>
+
+			</div>
+	</table>
+</div>

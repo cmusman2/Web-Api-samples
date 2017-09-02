@@ -1,0 +1,278 @@
+﻿  <!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">
+    <title>Book cheap hotels</title>
+    <link rel="shortcut icon" type="image/png" href="Contents/images/favicon.png"/>
+    <link type="text/css" rel="stylesheet" href="Contents/css/styles.css" media="all" />
+    <link rel="stylesheet" href="Contents/css/bootstrap.css" />
+    <link rel="stylesheet" href="Contents/css/app.css" />
+
+	<script src="Scripts/js/jquery.min.js"></script>
+	<script src="Scripts/js/bootstrap.min.js"></script>
+        
+      <script src="Scripts/js/angular/angular.js"></script>
+<script src="Scripts/js/angular/angular-route.js"></script>
+         
+        
+	<script src="Scripts/js/app.js"></script>
+	<script src="Scripts/js/service/ItemService.js"></script>
+	<script src="Scripts/js/controller/ItemListController.js"></script>
+
+       <!--  
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    -->
+   
+    <script src="Scripts/js/ui-bootstrap-tpls-2.5.0.js"></script>
+      <script type="text/javascript" src="Scripts/js/ngStorage.min.js"></script>
+    
+  
+
+	<script src="Scripts/js/controller/ItemDetailsController.js"></script>
+	<script type="text/javascript" src="Scripts/js/development-bundle/jquery-1.6.2.js"></script>
+	<script type="text/javascript" src="Scripts/js/development-bundle/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="Scripts/js/development-bundle/ui/jquery.ui.datepicker.js"></script>
+	<script type="text/javascript" src="Scripts/js/development-bundle/jquery.autocomplete.js"></script>
+
+
+<!-- 	<base href="/Spring4MVCAngularJSRoutingExample/index.html" />  -->
+<style>
+
+.popover {
+  position: absolute;
+  z-index: 100;
+}
+ 
+</style>
+</head>
+<body>
+		
+	<div class="generic-containerx">
+		<h1 style="margin: 0;background:#0c3d72;color:#fff;padding:10px;padding-bottom:10px"><a href="#"><img height="70" src="Contents/images/logo.png"/></a></h1>
+		<div class="panel panel-default" style="height:400px;background:url(Contents/images/bgimg.jpg); background-size: cover;">
+			<!-- Default panel contents -->
+		   
+		    <form ng-controller="SubmissionController" name="searchForm" ng-submit="submitForm()">
+		    
+		     <div style="padding:10px;padding-top:2px;height:210px;opacity:.9;min-width:300px;width:20%;position:relative;top:100px;margin:auto;background:#fff">
+		   
+		     
+		     <label>Destination 
+		      <input style="height:30px;width:100%" class="ac_input city_input" ng-required="true"  path="CityAJaxH" placeholder="Enter destination" ng-model="CityAjaxH" type="search" id="CityAjaxH" name="CityAjaxH" required/>
+		      </label>
+		      <br/>
+		     <label>Check-in date
+		      		      <input style="cursor:pointer;height:30px; ng-value="from |asDate| date:'dd/MM/yy'" ng-model="from |asDate| date:'dd-MM-yyyy'" name="from"  id="from" class="date-input" required data-readonly/>
+		       
+		      </label>
+		      <br/>
+		      
+		     <label>Nights to stay
+		       <select ng-init="nights = 1" style="height:30px;" id="nights" ng-model="nights" ng-options="n for n in [] | range:1:29"></select>
+		      
+		      
+		      </label>
+		       
+		      <input type="hidden" id="hotelId">
+			 <input type="hidden" id="CityAjaxH2">
+			 <input type="hidden" id="CityLocal">
+		      
+		     <!-- 
+		     <div style="margin:auto;">
+		      <a href="#/items/hotels/{{searchTerm}}/from/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
+		     </div>
+		     -->
+		     <!-- 
+		      <a href="#" onclick="location.href='#/items/hotels/'+$('#CityAjaxH').val()+'/'+$('#from').val()+'/'+$('#nights').val();" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
+		      <a href="#/items/hotels/{{searchTerm}}/{{sdateh}}/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
+		      -->		   
+              <button style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;" ng-click="buttonClicked = true">Search</button>
+              
+ 
+             
+         </form>
+		      
+		
+		     
+		 
+	</div>
+        
+	    </div>
+	    <div ng-view></div>
+ 
+<table width="100%" cellpadding="0" cellspacing="0" class="footer"> 
+ 
+    <tr>
+        <td align="center" colspan="2" class="footline">
+           
+        </td>
+    </tr> 
+    <tr>
+        <td align="center" colspan="2">
+         <table width="100%" class="footer">
+          <tr>
+            <td valign="top">
+                <table style="width:25%;float:left" class="footer">
+                    <tr>
+                        <td style="font-size:14pt" valign="top">
+                            About us
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lowest Room Rates is an online reservation website having over 175,000 hotels on offer.
+                            We aim to provide lowest hotel rates on worldwide destinations <a href="http://www.lowestroomrates.com/about">more about us</a>. 
+                        </td>
+                    </tr>
+                </table>           
+                <table  style="width:25%;float:left" class="footer">
+                    <tr>
+                        <td style="font-size:14pt" valign="top">
+                            Information
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com">Home</a>
+                        </td>
+                    </tr>                                                                  
+                    
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://wwww.lowestroomrates.com/index.php?act=pp">Privacy&nbsp;&amp;&nbsp;Cookies</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/index.php?act=cc">FAQ</a>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>
+                           <a class="bott" rel="nofollow" href="https://secure.lowestroomrates.com/booking/my-hotel-booking.html">Your Reservations</a>
+                        </td>
+                    </tr> 
+                   
+                </table>            
+                <table  style="width:25%;float:left" class="footer">
+                    <tr>
+                        <td style="font-size:14pt" valign="top">
+                            Hotel themes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/avail/escapes">Secret Escapes</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/avail/beach">Beach Hotels</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/index.php?act=bb">Bed &amp; Breakfast Hotels</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/avail/all-inclussive">All Inclusive Hotels</a>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/avail/adults">Romantic Escape Hotels</a>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>
+                           <a class="bott" href="http://www.lowestroomrates.com/avail/family">Fmaily Holiday Destinations</a>
+                        </td>
+                    </tr>                                                                                                          
+                </table>           
+                <table  style="width:25%;float:left" class="footer">
+                    <tr>
+                        <td style="font-size:14pt;width:170px" valign="top" align="center" colspan="5">
+                            Connect us 
+                        </td>
+                    </tr>                  
+                    <tr>
+
+
+                        <td align="center" id="g5">
+                            <div class="g-page" data-width="297" data-href="https://plus.google.com/b/116350002083718006672/+Lowestroomrates/" data-rel="publisher"></div>
+                            <a href="https://plus.google.com/b/116350002083718006672/+Lowestroomrates/" target="_blank" title="Google+"></a>
+                        </td>
+
+                        <td align="center" id="f5">
+                            <a href="https://www.facebook.com/lowestroomrates" target="_blank" title="Facebook"></a>        
+                        </td>
+
+                        <td align="center" id="t5">
+                            <a href="https://twitter.com/LowestRoomRates" target="_blank" title="Twitter"></a>        
+                        </td>
+
+                        <td align="center" id="p5">
+                            <a href="http://www.pinterest.com/lowestroomrates" target="_blank" title="Pinterest"></a>        
+                          </td>
+
+                        <td align="center" id="y5">
+                            <a href="https://www.youtube.com/user/lowestroomrates" target="_blank" title="Youtube"></a>        
+                          </td>
+                    </tr>                     
+                                                            
+                </table>   
+            </td>   
+    </tr>
+    <tr>
+      <td colspan="4" align="center">
+      <br/>
+        <p>Find here the <a class="u" href="http://blog.lowestroomrates.com/p/blog-page.html" target="_blank" title="top 10 places">top 10 places</a> that you would love to visit</p>      
+        <p>
+            Save a fortune by booking your stay at top <a href="http://www.lowestroomrates.com/avail/hotels/budgetbrandhotels.html" class="u" title="budget brand brands">budget brand hotels</a><br/>
+            Looking for certain type of hotels, search your destination by <a href="http://www.lowestroomrates.com/avail/Customs" class="u" title="hotel types">hotel types</a> and select the right type.<br/>
+            There is a <a href="http://www.lowestroomrates.com/avail/hotels/countrieslist.html" class="u" title="countries list">countries list</a> of favourite destinations here.
+        </p>
+      </td>
+    </tr>   
+
+<tr>
+    <td align="center" colspan="4">
+        &nbsp;
+    </td>
+</tr>  
+<tr>
+    <td align="center" colspan="4" style="font-size:10pt">
+        &copy; Lowest Room Rates -<script type="text/javascript">document.write(new Date().getFullYear())</script> All rights reserved.
+    </td>
+  
+</tr>  
+<tr>
+    <td align="center" colspan="4">
+        
+    </td>
+</tr> 
+</table> 
+</td></tr></table>
+
+<script>
+$(function() {  var dates = $( "#from" ).datepicker({  defaultDate: "+1w",  showOn: "both",  changeMonth: true,  buttonImageOnly: true,  numberOfMonths: 2,  dateFormat:'dd-mm-yy',  onSelect: function( selectedDate ) {  var option = this.id == "from" ? "minDate" : "maxDate",  instance = $( this ).data( "datepicker" ),  date = $.datepicker.parseDate(  instance.settings.dateFormat ||  $.datepicker._defaults.dateFormat,  selectedDate, instance.settings );  dates.not( this ).datepicker( "option", option, date );  }  });  });     
+
+function findValue(li) {  if( li == null ) return alert("No match!");     if( !!li.extra ) var sValue = li.extra[0];     else var sValue = li.selectValue;  if (document.getElementById('CityAjaxH2')!=null){  document.getElementById('CityAjaxH2').value = li.extra[1];  }    }    
+function selectItem(li) {  findValue(li);  }    
+function formatItem(row) {      if (document.getElementById('CityAjaxH2')!=null){  document.getElementById('CityAjaxH2').value = '';  }  return row[1] ;  }    
+function lookupAjax(){   var oSuggest = $("#CityAjaxH")[0].autocompleter;  oSuggest.findValue();  return false;  }    
+function lookupLocal(){    var oSuggest = $("#CityLocal")[0].autocompleter;  oSuggest.findValue();    return false;   }  
+$("#CityAjaxH").autocomplete(  "locations/autoComplete/",  {  delay:10,  minChars:3,  matchSubset:1,  matchContains:3,  cacheLength:0,  onItemSelect:selectItem,  onFindValue:findValue,  formatItem:formatItem,  autoFill:false  }  );     
+
+
+
+</script> 
+</body>
+</html>

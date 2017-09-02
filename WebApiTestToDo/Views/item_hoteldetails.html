@@ -1,0 +1,385 @@
+<div class="generic-containerx">
+	<div class="panel panel-defaultx"> 
+		<!-- Default panel contents -->
+	    <div class="panel-heading"><span class="lead" style="font-weight:bold;">
+	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	
+	    <img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/> 
+	        
+	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
+	    </span>
+
+	    <br/>
+	    {{itemDetailsCtrl.item.data.hotelSummary.address1}}
+	     {{itemDetailsCtrl.item.data.hotelSummary.postalCode}},
+	      {{itemDetailsCtrl.item.data.hotelSummary.city}},
+	      {{itemDetailsCtrl.item.data.hotelSummary.countryCode}}
+	      
+	    <a href="" style="color:#222">Back to results</a></div>
+	    <div class="tablecontainerx">
+	    
+	    	<table class="table table-hover">
+	            
+	            
+	            <tbody>
+	                <tr>
+	                   <td> 
+	                    <table>
+	                      <tr>
+	                        <td valign="top" style="width:1%">
+	                           <div ng-controller="CarouselCtrl">
+  
+    <div uib-carousel active="active" interval="myInterval"  >
+    
+      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="background:url(resources/images/prog.gif) no-repeat center;margin-top:2px;">
+      
+        <img class="progress-bar.active" width="400" height="290" ng-src="{{slide.image}}" style="margin:auto;">
+       
+      </div>
+    </div>
+  
+        </div>               <!-- 
+	                        <img width="430" style="border:thin solid #1e90ff;padding:1px" height="290" ng-model="mainimg" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" ng-if=" img.category == 1 " src="{{img.url}}"/>
+	                        -->
+	                        </td>
+	                         <td valign="top">
+	                           
+	                            <table style="background:#eee">
+	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates"  ng-if=" $index < 2 " ng-init="outerIndex = $index">
+	                              <td>
+	                             
+	                              <input type="hidden" name="hotelid" ng-value="itemDetailsCtrl.item.data.hotelSummary.hotelid" />
+	                              <input type="hidden" name="ratecode" ng-value="rate.ratecode" />
+	                              <input type="hidden" name="roomtypecode" ng-value="rate.roomtypecode" />
+	                              <input type="hidden" name="nights" ng-value="nights" />
+	                              <input type="hidden" name="cdate" ng-value="cdate" />
+	                              
+	                              <table width="100%">
+	                              <tr>
+	                               <td style="padding:5px;font-weight:bold;font-size:11pt;">
+	                                   {{rate.ratedescription}}
+	                                   <span style="font-weight:normal;color:green;font-size:10pt" ng-repeat="vs in rate.valueadds">
+	                                      <span ng-repeat="v in vs">
+	                                        <br/>{{v.description}}
+	                                       </span>
+	                                     
+	                                   </span>
+	                                   <span style="font-weight:normal" ng-repeat="rinfo in rate.roomrateinfos">
+	                                     <span ng-repeat="r in rinfo">	
+	                                     <br/>
+	                                       <span style="color:red" ng-if="r.nonRefundable == 'true'">Non refundable</span>
+	                                       <span style="color:green" ng-if="r.nonRefundable == 'false'">Free cancellation</span>
+	                                      </span>
+	                                   </span>
+	                               </td>
+	                               <td></td>
+	                               <td align="right" style="padding-right:15px">
+	                               
+	                                 <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                     
+	                                    <span class="price" ng-repeat="r in rinfo">
+	                                    
+	                                     {{r.chargeablerates.currecncycode}} {{r.chargeablerates.total}}
+	                                    </span>
+	                                    <br/>including taxes & fees
+	                                 </span>
+	                                 <br/>
+	                                 <!-- 
+	                                 <a href="#/items/booking/{{itemDetailsCtrl.item.data.hotelSummary.hotelid}}" class="booknow">Book now</a>
+	                                 <a href="https://secure.lowestroomrates.com/Booking.php?hotelId=233126&arrivalDate=5%2F28%2F17&departureDate=5%2F29%2F17&roomTypeCode=131166&rateCode=206417104&roomsCount=1&roomsdata=rooms[0].adultsCount=1|rooms[0].childrenCount=0&roomQ=&room1=" target="_blank" class="booknow">Book now</a>
+	                                 -->	                                 
+	                                 <a ng-controller="SubmissionController" class="booknow" href ng-click="doSubmitForBookingExternal($index)">Book now</a>
+	                                 <br/><span style="font-size:9pt;color:maroon;font-weight:normal">booking will be completed on our secure ecommerce site</span>
+	                                 
+	                                 <!-- 
+	                                 <a ng-controller="SubmissionController" class="booknow" target="_blank" href ng-click="doSubmitForBooking($index)">Book now</a>
+	                                 -->
+	                               </td>
+	                               </tr>
+	                               <tr>
+	                                   <td colspan="3" style="padding:3px">
+                                           <a href="" ng-click="checked=(checked ? false : true)">
+                                               <span style="font-weight:normal;font-size:10pt; class="roomname">See cancellation policy</span>  
+	                                       </a>
+	                                      
+	                                          <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                      
+	                                               <span class="price" ng-repeat="r in rinfo">	                                    
+	                                                  
+	                                                 <div style="font-weight:normal;font-size:10pt;color:#222" class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" r.cancellationPolicy  | trusted"/>
+	                                               </span>
+	                                    
+	                                         </span>
+	                                       	                                         
+                                       </td>
+	                               </tr>
+	                               <tr>
+	                                   <td colspan="3" style="padding:3px">
+                                           <a href="" ng-click="detailschecked=(detailschecked ? false : true)">
+                                               <span style="font-weight:normal;font-size:10pt; class="roomdetails">See details</span>  
+	                                       </a>
+	                                       <div style="font-weight:normal;font-size:10pt;color:#222" class="check-element animate-show-hide" ng-show="detailschecked" ng-bind-html=" rate.descriptionLong  | trusted"/>
+                                       </td>
+	                               </tr>
+	                               <tr>
+	                               <td colspan="3" style="background:#fff;height:2px">&nbsp;</td>
+	                               </tr>
+	                                
+	                               </table>
+	                               
+	                              </td> 
+	                              </tr>
+	                              
+	                            </table>
+	                          
+	                         </td>	                        
+	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top"> 
+	                           <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription != null">
+	                                                      
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.propertyDescription  | trusted">
+                                
+                                </span>   
+                                </span>
+	                         </td>
+	                      </tr>	 	                      
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top"> 	 
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription  | trusted">
+                                
+                                </span>   
+                                </span>
+	                         </td>
+	                      </tr>	                      
+
+	                      
+	                      
+	                      <tr>
+	                         <td colspan="2" valign="top"><br/>
+	                         <div style="postion:relative">	 
+	                         <div ng-controller="SubmissionController" ng-show="popoverIsVisible" style="top: 43%;margin-left: -180px;left: 30%;position:absolute;width:758px;background:#000;padding:5px;"> 
+                                <table>
+                                  <tr><td colspan="3"><span style="font-size:15pt;font-weight:bold;color:#fff;padding:2px;display:block"> {{caption}}</span></td></tr>
+                                  <tr>
+                                  <td><img id="backward" width="50" src="resources/images/backward.jpg"/></td>
+                                    <td>
+                                    <img alt="noimage2" width="650" height="400" src="{{popContent}}" ng-show="popoverIsVisible" />
+                                   </td>
+                                   <td><img id="forward" width="50" src="resources/images/forward.jpg"/></td>
+                                </table>            
+		                     </div>  
+		                     <div ng-controller="CarouselCtrl">                          
+                                 <img width="50"  data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images"  ng-click="setImages(img)" src="{{img.thumbnailUrl}}" title="{{img.caption}}" style="cursor:pointer;background:green;"/>
+                                   <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{cimg.caption}}</h4>
+        </div>
+        <div class="modal-body">
+         	    
+         	     
+         	                       <div style="height: 560px">
+                   <div uib-carousel style="background:url(resources/images/prog.gif) no-repeat center;height:480px;margin-top:2px;"> 
+                    
+                        
+                         <img height="550" width="100%" ng-src="{{cimg.url}}" onload="this.src={{cimg.thumbnailUrl}}" onerror="this.src={{cimg.url}}"/>
+                      
+                  </div>    
+                </div>
+                
+         	     <!--  
+                 <div style="height: 560px">
+                   <div uib-carousel> 
+                      <div uib-slide ng-repeat="slide in slides track by findId(slide)" index="slide.id">
+                         <h4 class="modal-title">{{slide.text}}</h4>
+                         <img height="550" ng-src="{{slide.image}}" style="margin:auto;">
+                      </div>
+                  </div>    
+                </div>
+                -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+	                         </div>
+	                         </td>
+	                          	                          
+	                      </tr>
+	                      
+
+	                      	                      
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                           <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.propertyInformation != null">
+	                            <br/>                              
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.propertyInformation  | trusted">
+                              
+                                </span>   
+                               </span>
+	                         </td>
+	                      </tr>
+	                      
+	                      
+	                      <tr>
+	                        <td colspan="2">
+	                        <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions != null">
+	                        <br/> 
+	                        <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions  | trusted">
+	                        
+	                        </span>	
+	                        </span>                      
+	                        </td>
+	                      </tr>	                      
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.diningDescription != null">
+	                         <br/>                           
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.diningDescription  | trusted">
+                                
+                                </span> 
+                               </span>  
+	                         </td>
+	                      </tr>
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.amenitiesDescription != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.amenitiesDescription  | trusted">
+                                 
+                                </span> 
+                              </span>  
+	                         </td>
+	                      </tr>
+
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription != null">
+                                <br/> 
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy != null">
+                                <br/> 
+                                
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.locationDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.locationDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.locationDescription != null">
+                                
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections != null">
+                                
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+	                      
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription != null">
+                              
+                                </span>
+                                </span>   
+	                         </td>
+	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription != null">
+                               <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription != null">
+                                <br/>
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+	                      
+
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">	                             
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomInformation != null">
+                               <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomInformation  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomInformation != null">
+                                <br/>
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription != null">
+                               <br/>                            
+                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription != null">
+                                <br/>
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+	                      
+                          <!-- 
+	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
+	                         <td valign="top" colspan="2">  	                                                   
+                                <a href="" ng-click="checked=(checked ? false : true)">
+                                <span class="roomname"> {{room.description}}</span>  
+	                             </a>
+	                         <br />	                            	                         
+	                            <div class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" room.descriptionLong  | trusted">
+                             </div>
+	                         </td>
+	                      </tr> -->
+	                      
+	                    </table>
+	                    </td>
+	                    
+	                </tr>
+	            </tbody>
+			</table>
+		</div>
+	</div>
+</div>

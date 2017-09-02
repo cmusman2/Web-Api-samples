@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -76,7 +77,36 @@ namespace WebApiTestToDo.Models
             return htls;
         }
 
-        public static List<Location> GetLocation(string loc)
+
+        public async static Task<string> GetLocations(string loc)
+        {
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+
+
+                client.BaseAddress = new Uri("http://www.lowestroomrates.com");
+                var query = new System.Net.Http.FormUrlEncodedContent(new[]
+                {
+                  new KeyValuePair<string, string>("q", loc)
+
+                 });
+
+                var result = await client.GetAsync("/src/autocomplete.php"+"?q="+loc);
+                
+                StringBuilder sb = new StringBuilder(result.Content.ReadAsStringAsync().Result);
+              // sb=sb.Replace("|", "\n");
+                string resultSet = sb.ToString();
+
+                resultSet = HttpUtility.HtmlDecode(resultSet);
+
+                return resultSet;
+
+
+            }
+        }
+
+        public async static Task<List<Location>> GetLocation(string loc)
         {
             list = new List<Location>()
             {
@@ -120,9 +150,9 @@ namespace WebApiTestToDo.Models
             if (!String.IsNullOrEmpty(loc) && !String.IsNullOrWhiteSpace(loc))
                 result = list.Where((p) => p.City.ToLower().Contains(loc.ToLower())).ToList();
 
-            result = result.Take(10).ToList();//first 10 enough
+            result =  result.Take(10).ToList();//first 10 enough
 
-            return result;
+            return  result;
         }
 
 

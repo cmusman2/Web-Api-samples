@@ -1,0 +1,95 @@
+<div class="generic-containerx">
+	<div class="panel panel-defaultx">
+		<!-- Default panel contents -->
+	    <div class="panel-heading" style="background:#222;color:#fff"><span class="lead">Search results</span></div>
+	    <div class="tablecontainer" style="padding-right:30px">
+	    	<table class="table table-hover">
+	            
+	            <tbody>
+	                <tr ng-repeat="item in itemListCtrl.items.data track by item.hotelid"  index="item.hotelid">
+	                 <td>
+	                  <form name="doForDetails" ng-controller="SubmissionController" ng-submit="submitForDetails()">
+	                  
+	                  
+	                  
+	                  <table>
+	                   <td style="border-bottom:thin dashed #1e90ff">
+	                   
+	                    <input type="hidden" name="hotelid" ng-model="hotelid" ng-value="{{item.hotelid}}" ng-init="{{item.hotelid}}"/>
+	                   
+	                    <a  href ng-click="doSubmitForDetails($index)" style="text-decoration:none">
+	                    <table> 
+	                      <tr>
+	                         <td>
+	                         <span  class="htlname">{{item.name  | trusted}}</span>
+	                         <br/>{{item.address1   | trusted}} {{item.postalcode}}, {{item.city}}, {{item.countrycode}}
+	                         </td>
+	                      </tr>
+	                      <tr>
+	                         <td valign="top" width="1%"><img style="border:thin solid #1e90ff;padding:1px" src="http://images.lowestroomrates.com{{item.thumbnailurl}}"/></td>
+	                         <td valign="top" style="padding:10px;font-weight:bold">
+	                         <img src="{{item.tripadvisorratingurl}}"/><br/>
+	                      <img src="resources/images/{{item.hotelrating}}.png"/><br/>
+	                      <p style="font-weight:normal">
+	                      {{item.roomrates.hotelroomavailinfos[0].roomdescription}} for {{item.roomrates.hotelroomavailinfos[0].maxroomoccupancy}}<br/>
+	                          <span style="font-weight:bold;color:#1e90ff" ng-bind-html=" item.locationdescription  | trusted"></span>
+	                          <br/>
+	                          <span style="color:#B40404" ng-repeat="vad in item.roomrates.hotelroomavailinfos[0]">
+	                             <span ng-repeat="v in vad.roomratevalueAdds">
+	                               {{v.description}}<br/>
+	                             </span>	                             	                            
+	                          </span>
+	                          
+	                          <!-- 
+	                          <p>
+	                          <span style="font-weight:normal" ng-bind-html=" item.shortdescription  | trusted"></span>
+	                          </p>
+	                          -->
+	                          <a href="#" style="font-weight:color:#1e90ff">Photos | Map | Hotel Reviews</a>
+	                           
+	                          </td>
+
+	                          
+	                         
+	                      </tr>
+
+	                    </table>
+	                    </a>
+	                    </td>
+	                         <td valign="top" align="right" style="border-bottom:thin dashed #1e90ff"> 
+	                         
+	                         	                         <span ng-repeat="rate in item.roomrates.hotelroomavailinfos">
+	                          
+	                          <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                   
+	                                    <span class="price" ng-repeat="r in rinfo">
+	                                   
+	                                     {{r.chargeablerates.currecncycode}} {{r.chargeablerates.total}}
+	                                    </span>
+	                                    <br/>including taxes & fees
+	                                 </span>
+	                          </span>
+	                         
+	                         
+	                         
+	                         
+	                         
+	                          <br/>
+	                         
+	                         <!-- 
+	                           <a class="booknow" href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
+	                         -->
+	                         <a class="booknow" href ng-click="doSubmitForDetails($index)">See&nbsp;details</a>
+	                         <!-- 
+	                         <input type="submit" id="submit" value="See details" style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;"/>
+	                         -->
+	                         </td>
+	                   </table>
+	                   </form>
+	                </td>
+	                </tr>
+	            </tbody>
+			</table>
+		</div>
+	</div>
+</div>

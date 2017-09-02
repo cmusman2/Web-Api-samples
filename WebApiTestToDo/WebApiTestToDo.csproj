@@ -132,6 +132,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents\css\app.css" />
+    <Content Include="Contents\css\bootstrap.css" />
+    <Content Include="Contents\css\core.css" />
+    <Content Include="Contents\css\custom22.css" />
+    <Content Include="Contents\css\dates.css" />
+    <Content Include="Contents\css\styles.css" />
+    <Content Include="Contents\css\theme.css" />
+    <Content Include="Contents\images\1.0.png" />
+    <Content Include="Contents\images\1.5.png" />
+    <Content Include="Contents\images\2.0.png" />
+    <Content Include="Contents\images\2.5.png" />
+    <Content Include="Contents\images\3.0.png" />
+    <Content Include="Contents\images\3.5.png" />
+    <Content Include="Contents\images\4.0.png" />
+    <Content Include="Contents\images\4.5.png" />
+    <Content Include="Contents\images\5.0.png" />
+    <Content Include="Contents\images\animated_progress.gif" />
+    <Content Include="Contents\images\backward - Copy.jpg" />
+    <Content Include="Contents\images\backward.jpg" />
+    <Content Include="Contents\images\bgimg - Copy.jpg" />
+    <Content Include="Contents\images\bgimg.jpg" />
+    <Content Include="Contents\images\favicon.png" />
+    <Content Include="Contents\images\forward - Copy - Copy.jpg" />
+    <Content Include="Contents\images\forward.jpg" />
+    <Content Include="Contents\images\logo.png" />
+    <Content Include="Contents\images\oc.png" />
+    <Content Include="Contents\images\prog.gif" />
     <Content Include="Sample\img\Acoustic.jpg" />
     <Content Include="Sample\img\Bass.jpg" />
     <Content Include="Sample\img\Electric.jpg" />
@@ -201,10 +228,32 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.js" />
     <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
+    <Content Include="Scripts\js\angular\angular-route.js" />
+    <Content Include="Scripts\js\angular\angular-route.min.js" />
+    <Content Include="Scripts\js\angular\angular.js" />
+    <Content Include="Scripts\js\angular\angular.min.js" />
+    <Content Include="Scripts\js\app.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\controller\ItemDetailsController.js" />
+    <Content Include="Scripts\js\controller\ItemListController.js" />
+    <Content Include="Scripts\js\controller\testController.js" />
+    <Content Include="Scripts\js\development-bundle\jquery-1.6.2.js" />
+    <Content Include="Scripts\js\development-bundle\jquery.autocomplete.js" />
+    <Content Include="Scripts\js\development-bundle\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\js\development-bundle\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\js\example.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\js.js" />
+    <Content Include="Scripts\js\ngStorage.min.js" />
+    <Content Include="Scripts\js\service\ItemService.js" />
+    <Content Include="Scripts\js\ui-bootstrap-tpls-2.5.0.js" />
+    <Content Include="Scripts\js\utils.js" />
+    <Content Include="Scripts\js\utilsp.js" />
     <Content Include="Scripts\Main.js" />
     <Content Include="Scripts\model.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="SignalRDemo.html" />
+    <Content Include="start.html" />
     <Content Include="tests.html" />
     <Content Include="Search.html" />
     <Content Include="indexorig.html" />
@@ -223,7 +272,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HotelDetailsController.cs" />
+    <Compile Include="Controllers\CustomController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -293,6 +342,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Contents\sampledata\" />
     <Folder Include="sampledata\" />
     <Folder Include="SampleGuitarApp\libangular\" />
     <Folder Include="Sample\libangular\" />

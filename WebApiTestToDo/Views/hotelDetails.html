@@ -1,53 +1,31 @@
 ﻿<!-- contact.html -->
 <div class="jumbotron text-center">
-    <h1>Contact Page</h1>
+    <h2>Hotel details</h2>
     
 
-    <table>
+    <table ng-controller="ItemListController as itemListCtrl">
+		
+        <div ng-repeat="hotel in itemListCtrl.items.data" style="border:dotted;border-width:thin;border-color:#1e90ff">
+           
+				 
+                <div><h3><a target="_blank" href="http://lowestroomrates.com/avails/ww{{ hotel.hotelid }}">{{hotel.name}}</a> <img src="{{hotel.tripadvisorratingurl}}"/></h3></div>
+			<div><img src="{{ hotel.thumbnailurl }}" /></div>
+			<div><h3><a target="_blank" href="/hotels/details/{{ hotel.hotelid }}">See details</a></h3></div>
+			<div>
+				{{ hotel.address1 }},
+				{{ hotel.city }}<br/>
+			 {{ hotel.locationdescription }}
+				
+				<br/>{{ hotel.postalcode }}, 
+				{{ hotel.countrycode }}
+				<br/>
+				<span style="color:#f00;font-size:large">{{ hotel.lowrate }}</span>
+				<br />
+				
 
-        <tr ng-repeat="hotel in hotels">
-            <td>
-                <table style="width:100%">
-                    <tr>
-                        <td colspan="4" style="color:#1e90ff;font-size:large;font-weight:bold">
-                            <a target="_blank" href="http://lowestroomrates.com/avails/ww{{ hotel.hotelid }}">{{ hotel.name }}</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{ hotel.thumbnailurl }}" /></td>
-                        <td>{{ hotel.address1 }}</td>
-                        <td>{{ hotel.city }}</td>
-                        <td>{{ hotel.lowrate }}</td>
-                    </tr>
+				<a href="#" ng-click="hotelDetails(hotel.hotelid)">See details {{ hotel.hotelid
+}}</a>
 
-                    <tr>
-                        <td>
-                            <a href="#" ng-click="hotelDetails(hotel.hotelid)">See details {{ hotel.hotelid }}</a>
-
-
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#">See details {{ hotel.hotelid }}</a>
-
-
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <div ng-view>
-                                {{hotelDetailsData.HotelSummary.name}}
-                                {{hotelDetailsData.HotelDetails.propertyDescription}}
-
-                            </div>
-                        </td>
-
-                    </tr>
-                </table>
-            </td>
-        </tr>
+				</div>
     </table>
 </div>

@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace WebApiTestToDo.Controllers
 {
-    public class HotelDetailsController : ApiController
+    public class CustomController : ApiController
     {
     }
 }
